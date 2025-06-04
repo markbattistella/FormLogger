@@ -164,7 +164,7 @@ extension FormViewModel {
         progressState = .submitting
         
         do {
-            let (data, response) = try await makeMultipartRequest(
+            let (_, response) = try await makeMultipartRequest(
                 to: config.apiURL,
                 requestBody: requestBody,
                 logData: logData

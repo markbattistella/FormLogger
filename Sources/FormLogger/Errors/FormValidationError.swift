@@ -10,15 +10,15 @@ import Foundation
 ///
 /// Contains a set of fields that failed validation. Conforms to the `Error` protocol to allow
 /// usage in error handling.
-public struct FormValidationError: Error {
+internal struct FormValidationError: Error {
 
     /// The set of form fields that did not pass validation.
-    public let invalidFields: Set<FormField>
+    internal let invalidFields: Set<FormField>
 
     /// Creates a new `FormValidationError` with the given invalid fields.
     ///
     /// - Parameter invalidFields: A set of `FormField` values indicating which fields are invalid.
-    public init(invalidFields: Set<FormField>) {
+    internal init(invalidFields: Set<FormField>) {
         self.invalidFields = invalidFields
     }
 }
