@@ -10,7 +10,7 @@ import Foundation
 ///
 /// Conforms to `Hashable` for use in sets and dictionaries, and `Sendable` for safe use across
 /// concurrency boundaries.
-public enum FormField: Hashable, Sendable {
+internal enum FormField: Hashable, Sendable {
 
     /// The title field of the form.
     case title

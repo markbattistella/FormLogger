@@ -8,7 +8,7 @@ import Foundation
 import PlatformChecker
 
 /// Represents supported Apple operating system types.
-public enum OSType: String {
+internal enum OSType: String {
 
     /// Apple’s mobile operating system for iPhone and iPad.
     case iOS
@@ -32,13 +32,13 @@ public enum OSType: String {
     case unknown
 }
 
-public extension Platform {
+extension Platform {
 
     /// The current operating system type the app is running on.
     ///
     /// Evaluates a series of flags to determine the current OS and returns the corresponding
     /// `OSType`. Falls back to `.unknown` if no match is found.
-    static var currentOS: OSType {
+    internal static var currentOS: OSType {
         if isMacCatalyst {
             return .macCatalyst
         } else if isiOS {
