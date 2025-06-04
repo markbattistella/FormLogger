@@ -64,7 +64,7 @@ internal struct GzipError: Error, Sendable {
     ///   - code: The zlib error code.
     ///   - msg: An optional C string containing a message from zlib.
     internal init(code: Int32, msg: UnsafePointer<CChar>?) {
-        self.message = msg.flatMap(String.init(validatingUTF8:)) ?? "Unknown gzip error"
+        self.message = msg.flatMap(String.init(validatingCString:)) ?? "Unknown gzip error"
         self.kind = Kind(code: code)
     }
 
