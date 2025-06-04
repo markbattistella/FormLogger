@@ -11,13 +11,12 @@
 
 </div>
 
-`FormLogger` is a drop-in SwiftUI-compatible view model for logging bugs, feature requests, and feedback - with flexible support for custom UI and backends. You can use the bundled `ContactFormView`, or roll your own interface while leveraging the powerful `FormViewModel`. It’s designed to integrate with lightweight backends (like a Cloudflare Worker) that push issues to GitHub via their API.
+`FormLogger` is a drop-in SwiftUI-compatible manager for logging bugs, feature requests, and feedback - with flexible support for custom UI and backends. You can roll your own interface while leveraging the powerful `FormManager`. It’s designed to integrate with lightweight backends (like a Cloudflare Worker) that push issues to GitHub via their API.
 
 ## Features
 
-- **Drop-in form:** A ready-to-use SwiftUI view for collecting user feedback, bug reports, and feature requests.
 - **Input validation:** Ensures title, description, and (optional) contact details are properly filled and formatted.
-- **Customisable view model:** Use the underlying `FormViewModel` to power your own UI with full control over behaviour.
+- **Customisable view model:** Use the underlying `FormManager` to power your own UI with full control over behaviour.
 - **Repository routing:** Supports single, multiple, or selectively overridden repositories based on form type.
 - **Log attachment:** Automatically collects and submits log data alongside user input for better context.
 - **Async submission:** Handles network requests using `async`/`await`, with detailed progress and error state handling.
@@ -36,18 +35,9 @@ Alternatively, you can add `FormLogger` using Xcode by navigating to `File > Add
 
 ## Usage
 
-### Basic Usage
+With full control you can leverage the `FormManager` to power your own interface:
 
-Use the pre-built SwiftUI `ContactFormView` that uses `FormViewModel` internally. This gives you a working interface out of the box with minimal setup.
-
-> [!IMPORTANT]  
-> Embed it inside a `NavigationStack` to make sure all the toolbar items and layout render correctly.
-
-### Advanced Usage
-
-If you want more control, use `FormViewModel` directly to power your own interface:
-
-#### Capabilities
+### Capabilities
 
 - `userInput`: Contains title, description, and optional contact info.
 - `formType`: Enum of `.bug`, `.feature`, or `.feedback`.
@@ -59,7 +49,7 @@ If you want more control, use `FormViewModel` directly to power your own interfa
 
 ## Configuration
 
-You can customise how form submissions are routed to GitHub repositories using the `RepositoryResolver`.
+You can customise how form submissions are routed to repositories using the `RepositoryResolver`.
 
 This modular setup ensures you can scale your feedback system as your project grows - from a single inbox to a fully segmented triage workflow.
 
@@ -139,7 +129,7 @@ Perfect when:
 
 ## Validation
 
-Before submission, `FormViewModel` checks the user’s input for completeness and correctness. If validation fails, it throws a `FormValidationError`.
+Before submission, `FormManager` checks the user’s input for completeness and correctness. If validation fails, it throws a `FormValidationError`.
 
 ```swift
 public struct FormValidationError: Error {
@@ -154,12 +144,23 @@ Validation covers:
 - **Title:** Cannot be empty or just whitespace.
 - **Description:** Required, trimmed, and validated.
 - **Contact Info:** Optional, but if enabled, both name and email must be valid.
-  - Email format is checked using a basic regex pattern.
+  - Email format is checked using a *very* basic regex pattern.
 
 You can access validation state live via:
 
 ```swift
 viewModel.isFormValid // Bool
+```
+
+Or if you wish to get the invalid fields for display you can access `fieldErrors`:
+
+```swift
+// example
+if let error = viewModel.fieldErrors[.title] {
+  Text(error)
+    .font(.caption)
+    .foregroundColor(.red)
+}
 ```
 
 ### HTTP Response Handling
@@ -191,8 +192,8 @@ I’ve set mine up using:
 - A Cloudflare Worker to receive and forward form data
 - Logs and metadata are submitted as a multipart form
 
-> [!TIP]
-> I wrote about [my setup](https://markbattistella.com/<TO-FILL>) and how to set your own up.
+<!-- > [!TIP] -->
+<!-- > I wrote about [my setup](https://markbattistella.com/<TO-FILL>) and how to set your own up. -->
 
 This lets me forward validated SwiftUI form data directly to GitHub as an issue — but you can use any backend that accepts JSON and logs.
 

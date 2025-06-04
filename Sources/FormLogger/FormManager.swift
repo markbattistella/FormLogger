@@ -13,29 +13,32 @@ import Observation
 /// This class handles the full form submission lifecycle and provides state for UI updates via
 /// progress indicators and validation flags.
 @Observable
-public final class FormViewModel {
-    
+public final class FormManager {
+
     // MARK: - Public Properties
-    
+
     /// The user-provided form input.
     public var userInput: UserFormInput
-    
+
     /// The type of form being submitted (e.g., bug, feature, feedback).
     public var formType: FormType
-    
+
     /// Indicates whether the user is allowed to include contact details.
     public var allowContact: Bool
-    
+
     // MARK: - Internal State
-    
+
     /// The current state of form submission progress.
-    private(set) var progressState: ProgressState
-    
+    private var progressState: ProgressState
+
     /// The form configuration used for this view model instance.
     private let config: FormConfiguration
-    
+
+    /// A dictionary containing validation error messages for specific form fields.
+    public private(set) var fieldErrors: [FormField: String]
+
     // MARK: - Init
-    
+
     /// Creates a new `FormViewModel` instance.
     ///
     /// - Parameters:
@@ -50,30 +53,31 @@ public final class FormViewModel {
         self.userInput = .default
         self.allowContact = true
         self.progressState = .idle
+        self.fieldErrors = [:]
     }
-    
+
     // MARK: - Computed Helpers
-    
+
     /// Indicates whether the form submission process is currently active.
     public var isProcessing: Bool {
         progressState != .idle
     }
-    
+
     /// Indicates whether the current form input is valid.
     public var isFormValid: Bool {
         validateFormData().isEmpty
     }
-    
+
     /// The character limit allowed for user input fields.
     public var characterLimit: Int {
         config.characterLimit
     }
-    
+
     /// The current numeric progress of the form submission.
     public var currentProgress: Double {
         progressState.progress
     }
-    
+
     /// A human-readable label describing the current progress state.
     public var currentProgressLabel: String {
         progressState.description
@@ -82,42 +86,70 @@ public final class FormViewModel {
 
 // MARK: - Validation
 
-extension FormViewModel {
-    
-    /// Validates the current user input and returns a set of invalid fields.
+extension FormManager {
+
+    /// Validates the current user input for all relevant form fields.
     ///
-    /// - Returns: A set of `FormField` values representing fields that failed validation.
+    /// This method checks the required fields—such as title, description,
+    /// and optionally contact information—for validity. If any field contains
+    /// invalid or missing data, it is added to a set of fields with errors,
+    /// and a corresponding error message is stored in `fieldErrors`.
+    ///
+    /// - Returns: A set of `FormField` values representing the fields that failed validation.
     private func validateFormData() -> Set<FormField> {
         var errors = Set<FormField>()
-        
+        var newErrors: [FormField: String] = [:]
+
+        // Title
         if userInput.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             errors.insert(.title)
+            newErrors[.title] = FormField.title.errorMessage
         }
-        
+
+        // Description
         if userInput.description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             errors.insert(.description)
+            newErrors[.description] = FormField.description.errorMessage
         }
-        
+
+        // Contact Info
         if allowContact {
             guard let contact = userInput.contact else {
                 errors.insert(.contactName)
+                newErrors[.contactName] = FormField.contactName.errorMessage
+
                 errors.insert(.contactEmail)
+                newErrors[.contactEmail] = FormField.contactEmail.errorMessage
+                fieldErrors = newErrors
                 return errors
             }
-            
+
             if contact.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 errors.insert(.contactName)
+                newErrors[.contactName] = FormField.contactName.errorMessage
             }
-            
+
             let email = contact.email.trimmingCharacters(in: .whitespacesAndNewlines)
             if email.isEmpty || !isValidEmail(email) {
                 errors.insert(.contactEmail)
+                newErrors[.contactEmail] = FormField.contactEmail.errorMessage
             }
         }
-        
+
+        fieldErrors = newErrors
         return errors
     }
-    
+
+    /// Clears the error associated with the specified form field.
+    ///
+    /// Use this method to remove a validation or input error previously
+    /// set for a given `FormField`.
+    ///
+    /// - Parameter field: The form field for which to clear the error.
+    public func clearError(for field: FormField) {
+        fieldErrors[field] = nil
+    }
+
     /// Checks whether the given email address appears valid using a simple regex.
     ///
     /// - Parameter email: The email string to validate.
@@ -130,29 +162,31 @@ extension FormViewModel {
 
 // MARK: - Form Submission
 
-extension FormViewModel {
-    
+extension FormManager {
+
     /// Submits the form, collecting logs, validating input, and handling response.
     ///
     /// - Returns: A `FormResponse` indicating success or the type of failure.
     /// - Throws: `FormValidationError` if validation fails, or other `FormResponse` errors.
     @MainActor
     public func submit() async throws -> FormResponse {
-        
-        progressState = .starting
-        
+
+        self.progressState = .starting
+
         let validationErrors = validateFormData()
         guard validationErrors.isEmpty else {
-            progressState = .idle
+            self.progressState = .idle
             throw FormValidationError(invalidFields: validationErrors)
         }
-        
-        progressState = .fetchingLog
+
+        self.fieldErrors = [:]
+
+        self.progressState = .fetchingLog
         try await config.loggerManager.fetchLogEntries()
         let logData = config.loggerManager.exportLogs(as: .log)
-        
+
         let repo = config.repository.getRepository(for: formType)
-        
+
         let requestBody = FormRequestBody(
             title: userInput.title,
             description: userInput.description,
@@ -160,20 +194,20 @@ extension FormViewModel {
             label: formType.rawValue,
             contact: allowContact ? userInput.contact : nil
         )
-        
-        progressState = .submitting
-        
+
+        self.progressState = .submitting
+
         do {
             let (_, response) = try await makeMultipartRequest(
                 to: config.apiURL,
                 requestBody: requestBody,
                 logData: logData
             )
-            
+
             try await handleResponse(response)
-            progressState = .idle
+            self.progressState = .idle
             return .successMessage
-            
+
         } catch {
             self.progressState = .idle
             throw error
@@ -183,8 +217,8 @@ extension FormViewModel {
 
 // MARK: - Multipart Form
 
-extension FormViewModel {
-    
+extension FormManager {
+
     /// Creates and sends a multipart HTTP request containing the form data and logs.
     ///
     /// - Parameters:
@@ -198,16 +232,16 @@ extension FormViewModel {
         requestBody: FormRequestBody,
         logData: String
     ) async throws -> (Data, HTTPURLResponse) {
-        
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        
+
         let boundary = UUID().uuidString
         request.setValue(
             "multipart/form-data; boundary=\(boundary)",
             forHTTPHeaderField: "Content-Type"
         )
-        
+
         let httpBody = try createMultipartBody(
             boundary: boundary,
             requestBody: requestBody,
@@ -218,16 +252,16 @@ extension FormViewModel {
             "\(httpBody.count)",
             forHTTPHeaderField: "Content-Length"
         )
-        
+
         let (data, response) = try await URLSession.shared.data(for: request)
-        
+
         guard let httpResponse = response as? HTTPURLResponse else {
             throw URLError(.badServerResponse)
         }
-        
+
         return (data, httpResponse)
     }
-    
+
     /// Creates the multipart body containing encoded form data and compressed logs.
     ///
     /// - Parameters:
@@ -243,22 +277,22 @@ extension FormViewModel {
         var body = Data()
         let lineBreak = "\r\n"
         let logFilename = "log-\(Date.now.filenameISO8601).log"
-        
+
         let jsonData = try JSONEncoder().encode(requestBody)
-        
+
         body.append("--\(boundary)\(lineBreak)")
         body.append("Content-Disposition: form-data; name=\"requestBody\"\(lineBreak)")
         body.append("Content-Type: application/json\(lineBreak)\(lineBreak)")
         body.append(jsonData)
         body.append(lineBreak)
-        
+
         let compressedLogs = try logs.data(using: .utf8)?.gzipped() ?? Data()
         body.append("--\(boundary)\(lineBreak)")
         body.append("Content-Disposition: form-data; name=\"logs\"; filename=\"\(logFilename).gz\"\(lineBreak)")
         body.append("Content-Type: application/gzip\(lineBreak)\(lineBreak)")
         body.append(compressedLogs)
         body.append(lineBreak)
-        
+
         body.append("--\(boundary)--\(lineBreak)")
         return body
     }
@@ -266,8 +300,8 @@ extension FormViewModel {
 
 // MARK: - Network Results
 
-extension FormViewModel {
-    
+extension FormManager {
+
     /// Handles the server response after submitting the form.
     ///
     /// - Parameter response: The HTTP response received.
