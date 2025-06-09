@@ -12,13 +12,13 @@ import Foundation
 public struct UserFormInput {
 
     /// The title of the form input, typically a brief summary.
-    public let title: String
+    public var title: String
 
     /// A detailed description provided by the user.
-    public let description: String
+    public var description: String
 
     /// Optional contact information for follow-up or identification.
-    public let contact: Contact?
+    public var contact: Contact
 
     /// Creates a new `UserFormInput` instance.
     ///
@@ -26,7 +26,7 @@ public struct UserFormInput {
     ///   - title: The summary or headline of the input.
     ///   - description: A more detailed explanation or message.
     ///   - contact: Optional contact details.
-    public init(title: String, description: String, contact: Contact?) {
+    public init(title: String, description: String, contact: Contact) {
         self.title = title
         self.description = description
         self.contact = contact
@@ -36,6 +36,6 @@ public struct UserFormInput {
     ///
     /// Useful for initialising forms or resetting user input.
     public static var `default`: UserFormInput {
-        UserFormInput(title: "", description: "", contact: nil)
+        UserFormInput(title: "", description: "", contact: .init(name: "", email: ""))
     }
 }

@@ -5,7 +5,7 @@
 //
 
 import Foundation
-import SimpleLogger
+@_exported import SimpleLogger
 
 /// A protocol defining the configuration requirements for a form submission system.
 ///

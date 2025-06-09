@@ -12,10 +12,10 @@ import Foundation
 public struct Contact: Encodable {
 
     /// The full name of the contact.
-    public let name: String
+    public var name: String
 
     /// The contact's email address.
-    public let email: String
+    public var email: String
 
     /// Creates a new `Contact` instance.
     ///

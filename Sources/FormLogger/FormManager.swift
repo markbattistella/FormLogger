@@ -90,10 +90,9 @@ extension FormManager {
 
     /// Validates the current user input for all relevant form fields.
     ///
-    /// This method checks the required fields—such as title, description,
-    /// and optionally contact information—for validity. If any field contains
-    /// invalid or missing data, it is added to a set of fields with errors,
-    /// and a corresponding error message is stored in `fieldErrors`.
+    /// This method checks the required fields—such as title, description, and contact information
+    /// for validity. If any field contains  invalid or missing data, it is added to a set of
+    /// fields with errors, and a corresponding error message is stored in `fieldErrors`.
     ///
     /// - Returns: A set of `FormField` values representing the fields that failed validation.
     private func validateFormData() -> Set<FormField> {
@@ -114,15 +113,7 @@ extension FormManager {
 
         // Contact Info
         if allowContact {
-            guard let contact = userInput.contact else {
-                errors.insert(.contactName)
-                newErrors[.contactName] = FormField.contactName.errorMessage
-
-                errors.insert(.contactEmail)
-                newErrors[.contactEmail] = FormField.contactEmail.errorMessage
-                fieldErrors = newErrors
-                return errors
-            }
+            let contact = userInput.contact
 
             if contact.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 errors.insert(.contactName)
@@ -286,14 +277,19 @@ extension FormManager {
         body.append(jsonData)
         body.append(lineBreak)
 
-        let compressedLogs = try logs.data(using: .utf8)?.gzipped() ?? Data()
-        body.append("--\(boundary)\(lineBreak)")
-        body.append("Content-Disposition: form-data; name=\"logs\"; filename=\"\(logFilename).gz\"\(lineBreak)")
-        body.append("Content-Type: application/gzip\(lineBreak)\(lineBreak)")
-        body.append(compressedLogs)
-        body.append(lineBreak)
+        if !logs.isEmpty {
+            let compressedLogs = try logs.data(using: .utf8)?.gzipped() ?? Data()
+            if !compressedLogs.isEmpty {
+                body.append("--\(boundary)\(lineBreak)")
+                body.append("Content-Disposition: form-data; name=\"logs\"; filename=\"\(logFilename).gz\"\(lineBreak)")
+                body.append("Content-Type: application/gzip\(lineBreak)\(lineBreak)")
+                body.append(compressedLogs)
+                body.append(lineBreak)
+            }
+        }
 
         body.append("--\(boundary)--\(lineBreak)")
+
         return body
     }
 }
