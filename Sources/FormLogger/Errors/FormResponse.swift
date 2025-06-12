@@ -22,9 +22,6 @@ public enum FormResponse: Error {
     
     /// An unspecified or unexpected error occurred.
     case unexpectedError
-    
-    /// The form was submitted successfully and returned a success message.
-    case successMessage
 }
 
 extension FormResponse: LocalizedError {
@@ -43,9 +40,6 @@ extension FormResponse: LocalizedError {
                 
             case .unexpectedError:
                 return "Unexpected Error"
-                
-            case .successMessage:
-                return "Success"
         }
     }
     
@@ -63,9 +57,6 @@ extension FormResponse: LocalizedError {
                 
             case .unexpectedError:
                 return "An unexpected error occurred. Please try again or contact support."
-                
-            case .successMessage:
-                return "Form submitted successfully!"
         }
     }
 }

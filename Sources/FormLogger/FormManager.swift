@@ -6,6 +6,13 @@
 
 import Foundation
 import Observation
+import SimpleLogger
+
+extension LoggerCategory {
+
+    /// A logger category used for form submission events.
+    static let formSubmission = LoggerCategory("FormSubmission")
+}
 
 /// A view model that manages user input, form validation, log collection, and submission of a
 /// support or feedback form.
@@ -26,7 +33,13 @@ public final class FormManager {
     /// Indicates whether the user is allowed to include contact details.
     public var allowContact: Bool
 
+    /// A Boolean value that determines whether logs should be collected.
+    public var shouldCollectLogs: Bool
+
     // MARK: - Internal State
+
+    /// A logger instance scoped to the form submission category.
+    private let logger = SimpleLogger(category: .formSubmission)
 
     /// The current state of form submission progress.
     private var progressState: ProgressState
@@ -52,6 +65,7 @@ public final class FormManager {
         self.config = configuration
         self.userInput = .default
         self.allowContact = true
+        self.shouldCollectLogs = true
         self.progressState = .idle
         self.fieldErrors = [:]
     }
@@ -127,6 +141,11 @@ extension FormManager {
             }
         }
 
+        // Log errors
+        for (field, message) in newErrors {
+            logger.error("Validation failed for: '\(field.rawValue, privacy: .public)': \(message, privacy: .public)")
+        }
+
         fieldErrors = newErrors
         return errors
     }
@@ -155,26 +174,45 @@ extension FormManager {
 
 extension FormManager {
 
-    /// Submits the form, collecting logs, validating input, and handling response.
+    /// Submits the form data asynchronously after validating input and optionally collecting logs.
     ///
-    /// - Returns: A `FormResponse` indicating success or the type of failure.
-    /// - Throws: `FormValidationError` if validation fails, or other `FormResponse` errors.
+    /// This method performs the following steps:
+    /// - Validates user input fields.
+    /// - Logs any validation failures and throws an error if necessary.
+    /// - Optionally collects diagnostic logs if `shouldCollectLogs` is `true`.
+    /// - Prepares a request payload with form details.
+    /// - Sends a multipart form submission to the configured API endpoint.
+    /// - Handles the API response, updating the submission state and logging results.
+    ///
+    /// - Throws:
+    ///   - `FormValidationError` if form validation fails.
+    ///   - Any error thrown during log collection, request building, or network communication.
     @MainActor
-    public func submit() async throws -> FormResponse {
+    public func submit() async throws {
 
+        logger.info("Starting form submission")
         self.progressState = .starting
 
         let validationErrors = validateFormData()
         guard validationErrors.isEmpty else {
+            let message = "Form validation failed: \(validationErrors.map(\.rawValue).joined(separator: ", "))"
+            logger.warning("\(message, privacy: .public)")
             self.progressState = .idle
             throw FormValidationError(invalidFields: validationErrors)
         }
 
         self.fieldErrors = [:]
-
         self.progressState = .fetchingLog
-        try await config.loggerManager.fetchLogEntries()
-        let logData = config.loggerManager.exportLogs(as: .log)
+        var logData = ""
+
+        if shouldCollectLogs {
+            logger.info("Collecting logs")
+            try await config.loggerManager.fetchLogEntries()
+            logData = config.loggerManager.exportLogs(as: .log)
+            logger.info("Logs collected: \(logData.count) characters")
+        } else {
+            logger.info("Log collection skipped by user")
+        }
 
         let repo = config.repository.getRepository(for: formType)
 
@@ -186,6 +224,8 @@ extension FormManager {
             contact: allowContact ? userInput.contact : nil
         )
 
+        let message = "Submitting form to \(config.apiURL.absoluteString) for repo '\(repo)' with label '\(formType.rawValue)'"
+        logger.info("\(message, privacy: .public)")
         self.progressState = .submitting
 
         do {
@@ -196,10 +236,10 @@ extension FormManager {
             )
 
             try await handleResponse(response)
+            logger.info("Form submission successful: HTTP \(response.statusCode)")
             self.progressState = .idle
-            return .successMessage
-
         } catch {
+            logger.error("Form submission failed: \(String(describing: error))")
             self.progressState = .idle
             throw error
         }
@@ -224,14 +264,13 @@ extension FormManager {
         logData: String
     ) async throws -> (Data, HTTPURLResponse) {
 
+        logger.info("Constructing multipart request for submission to \(url.absoluteString)")
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
 
         let boundary = UUID().uuidString
-        request.setValue(
-            "multipart/form-data; boundary=\(boundary)",
-            forHTTPHeaderField: "Content-Type"
-        )
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
         let httpBody = try createMultipartBody(
             boundary: boundary,
@@ -239,17 +278,18 @@ extension FormManager {
             logs: logData
         )
         request.httpBody = httpBody
-        request.setValue(
-            "\(httpBody.count)",
-            forHTTPHeaderField: "Content-Length"
-        )
+        request.setValue("\(httpBody.count)", forHTTPHeaderField: "Content-Length")
+
+        logger.info("Multipart request constructed with body size \(httpBody.count) bytes")
 
         let (data, response) = try await URLSession.shared.data(for: request)
 
         guard let httpResponse = response as? HTTPURLResponse else {
+            logger.error("Server response was not a valid HTTPURLResponse")
             throw URLError(.badServerResponse)
         }
 
+        logger.info("Received HTTP response with status code \(httpResponse.statusCode)")
         return (data, httpResponse)
     }
 
@@ -270,6 +310,7 @@ extension FormManager {
         let logFilename = "log-\(Date.now.filenameISO8601).log"
 
         let jsonData = try JSONEncoder().encode(requestBody)
+        logger.info("Encoded request body to JSON successfully, size: \(jsonData.count) bytes")
 
         body.append("--\(boundary)\(lineBreak)")
         body.append("Content-Disposition: form-data; name=\"requestBody\"\(lineBreak)")
@@ -280,12 +321,18 @@ extension FormManager {
         if !logs.isEmpty {
             let compressedLogs = try logs.data(using: .utf8)?.gzipped() ?? Data()
             if !compressedLogs.isEmpty {
+                logger.info("Including compressed log file '\(logFilename).gz', size: \(compressedLogs.count) bytes")
+
                 body.append("--\(boundary)\(lineBreak)")
                 body.append("Content-Disposition: form-data; name=\"logs\"; filename=\"\(logFilename).gz\"\(lineBreak)")
                 body.append("Content-Type: application/gzip\(lineBreak)\(lineBreak)")
                 body.append(compressedLogs)
                 body.append(lineBreak)
+            } else {
+                logger.warning("Log data was not empty but compression resulted in empty data")
             }
+        } else {
+            logger.info("No logs included in multipart body")
         }
 
         body.append("--\(boundary)--\(lineBreak)")
@@ -304,20 +351,32 @@ extension FormManager {
     /// - Throws: A `FormResponse` error if the status code indicates failure.
     @MainActor
     private func handleResponse(_ response: HTTPURLResponse) async throws {
+        logger.info("Handling server response, status code: \(response.statusCode)")
+
         switch response.statusCode {
             case 200...299:
+                logger.info("Form submission successful")
                 if config.shouldClearForm {
+                    logger.info("Clearing form after successful submission (delay: \(self.config.clearFormDelay, privacy: .public)s)")
                     try? await Task.sleep(for: .seconds(config.clearFormDelay))
                     userInput = .default
                 }
                 progressState = .completed
+
             case 400:
+                logger.warning("Form submission failed: bad request (400)")
                 throw FormResponse.badRequest
+
             case 401:
+                logger.warning("Form submission failed: unauthorized (401)")
                 throw FormResponse.unauthorized
+
             case 500:
+                logger.error("Form submission failed: server error (500)")
                 throw FormResponse.serverError
+
             default:
+                logger.error("Form submission failed: unexpected status code \(response.statusCode, privacy: .public)")
                 throw FormResponse.unexpectedError
         }
     }
