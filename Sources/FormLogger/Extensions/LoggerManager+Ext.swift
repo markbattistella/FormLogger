@@ -7,6 +7,15 @@
 import SimpleLogger
 import Foundation
 
+extension LoggerCategory {
+
+    /// A logging category used for all events related to form submission.
+    ///
+    /// Use this category to filter, group, or manage logs that occur during
+    /// the form lifecycle — including validation, submission, and clearing actions.
+    static let formSubmission = LoggerCategory("FormSubmission")
+}
+
 extension LoggerManager {
 
     /// A logger configuration that disables all logging.

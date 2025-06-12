@@ -6,57 +6,49 @@
 
 import Foundation
 import Observation
-import SimpleLogger
 
-extension LoggerCategory {
-
-    /// A logger category used for form submission events.
-    static let formSubmission = LoggerCategory("FormSubmission")
-}
-
-/// A view model that manages user input, form validation, log collection, and submission of a
-/// support or feedback form.
+/// An observable class responsible for managing the lifecycle and state of a form submission.
 ///
-/// This class handles the full form submission lifecycle and provides state for UI updates via
-/// progress indicators and validation flags.
+/// `FormManager` handles user input, progress tracking, validation errors, and integration
+/// with the configured logging and repository systems. It supports UI binding through observation.
 @Observable
 public final class FormManager {
-
+    
     // MARK: - Public Properties
-
-    /// The user-provided form input.
+    
+    /// The current input provided by the user.
     public var userInput: UserFormInput
-
-    /// The type of form being submitted (e.g., bug, feature, feedback).
+    
+    /// The type of form being submitted (e.g. feedback, support).
     public var formType: FormType
-
-    /// Indicates whether the user is allowed to include contact details.
+    
+    /// Determines whether contact fields should be included and validated.
     public var allowContact: Bool
-
-    /// A Boolean value that determines whether logs should be collected.
+    
+    /// Indicates whether logs should be collected and attached to the form.
     public var shouldCollectLogs: Bool
-
+    
     // MARK: - Internal State
-
-    /// A logger instance scoped to the form submission category.
+    
+    /// Logger instance used for capturing form-related logs and diagnostics.
     private let logger = SimpleLogger(category: .formSubmission)
-
-    /// The current state of form submission progress.
+    
+    /// The current progress state of the form (e.g. submitting, completed).
     private var progressState: ProgressState
-
-    /// The form configuration used for this view model instance.
+    
+    /// Configuration object providing environment-specific behaviour and dependencies.
     private let config: FormConfiguration
-
-    /// A dictionary containing validation error messages for specific form fields.
+    
+    /// A dictionary of validation errors keyed by form field, updated after validation.
     public private(set) var fieldErrors: [FormField: String]
-
+    
     // MARK: - Init
-
-    /// Creates a new `FormViewModel` instance.
+    
+    /// Creates a new instance of `FormManager`.
     ///
     /// - Parameters:
     ///   - formType: The type of form being submitted.
-    ///   - configuration: Configuration data such as API URL, logging, and repository targets.
+    ///   - configuration: The configuration used to control form behaviour and dependencies.
     public init(
         formType: FormType,
         configuration: FormConfiguration
@@ -69,30 +61,44 @@ public final class FormManager {
         self.progressState = .idle
         self.fieldErrors = [:]
     }
+}
 
-    // MARK: - Computed Helpers
+// MARK: - Computed Helpers
 
-    /// Indicates whether the form submission process is currently active.
+extension FormManager {
+    
+    /// Indicates whether the form is currently being processed (e.g. submitting or clearing).
+    ///
+    /// Returns `true` when the form is in any state other than `.idle`.
     public var isProcessing: Bool {
         progressState != .idle
     }
-
-    /// Indicates whether the current form input is valid.
+    
+    /// Returns `true` if the current user input passes validation checks.
+    ///
+    /// Internally calls `validateFormData()` and checks that there are no validation errors.
     public var isFormValid: Bool {
         validateFormData().isEmpty
     }
-
-    /// The character limit allowed for user input fields.
+    
+    /// The maximum number of characters allowed in form input fields.
+    ///
+    /// This value is retrieved from the injected `FormConfiguration`.
     public var characterLimit: Int {
         config.characterLimit
     }
-
-    /// The current numeric progress of the form submission.
+    
+    /// A numeric value representing the current progress of the form process.
+    ///
+    /// Useful for visual progress indicators like progress bars.
+    /// Value ranges from `0.0` (idle) to `1.0` (completed).
     public var currentProgress: Double {
         progressState.progress
     }
-
-    /// A human-readable label describing the current progress state.
+    
+    /// A human-readable description of the current progress state.
+    ///
+    /// For example: "Submitting form", "Clearing form in 3...", or "Done".
     public var currentProgressLabel: String {
         progressState.description
     }
@@ -101,69 +107,66 @@ public final class FormManager {
 // MARK: - Validation
 
 extension FormManager {
-
-    /// Validates the current user input for all relevant form fields.
+    
+    /// Validates the current user input and returns a set of fields that failed validation.
     ///
-    /// This method checks the required fields—such as title, description, and contact information
-    /// for validity. If any field contains  invalid or missing data, it is added to a set of
-    /// fields with errors, and a corresponding error message is stored in `fieldErrors`.
+    /// This method checks for empty or improperly formatted fields, depending on the current
+    /// configuration. If `allowContact` is `true`, contact name and email are also validated.
     ///
-    /// - Returns: A set of `FormField` values representing the fields that failed validation.
+    /// - Returns: A set of `FormField` cases that contain invalid input.
     private func validateFormData() -> Set<FormField> {
         var errors = Set<FormField>()
         var newErrors: [FormField: String] = [:]
-
-        // Title
+        
+        // Validate title
         if userInput.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             errors.insert(.title)
             newErrors[.title] = FormField.title.errorMessage
         }
-
-        // Description
-        if userInput.description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            errors.insert(.description)
-            newErrors[.description] = FormField.description.errorMessage
+        
+        // Validate message
+        if userInput.message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            errors.insert(.message)
+            newErrors[.message] = FormField.message.errorMessage
         }
-
-        // Contact Info
+        
+        // Validate contact details if required
         if allowContact {
             let contact = userInput.contact
-
+            
             if contact.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 errors.insert(.contactName)
                 newErrors[.contactName] = FormField.contactName.errorMessage
             }
-
+            
             let email = contact.email.trimmingCharacters(in: .whitespacesAndNewlines)
             if email.isEmpty || !isValidEmail(email) {
                 errors.insert(.contactEmail)
                 newErrors[.contactEmail] = FormField.contactEmail.errorMessage
             }
         }
-
-        // Log errors
-        for (field, message) in newErrors {
-            logger.error("Validation failed for: '\(field.rawValue, privacy: .public)': \(message, privacy: .public)")
-        }
-
+        
+        // Update public-facing field error dictionary
         fieldErrors = newErrors
         return errors
     }
-
-    /// Clears the error associated with the specified form field.
+    
+    /// Clears the validation error for a specific field.
     ///
-    /// Use this method to remove a validation or input error previously
-    /// set for a given `FormField`.
-    ///
-    /// - Parameter field: The form field for which to clear the error.
+    /// - Parameter field: The `FormField` to remove from the current error set.
     public func clearError(for field: FormField) {
         fieldErrors[field] = nil
     }
-
-    /// Checks whether the given email address appears valid using a simple regex.
+    
+    /// Clears all validation errors from the current form state.
+    public func clearAllErrors() {
+        fieldErrors = [:]
+    }
+    
+    /// Validates an email address using a basic regular expression.
     ///
     /// - Parameter email: The email string to validate.
-    /// - Returns: A Boolean indicating whether the email is valid.
+    /// - Returns: `true` if the email is valid, otherwise `false`.
     private func isValidEmail(_ email: String) -> Bool {
         let regex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,12}$"
         return NSPredicate(format: "SELF MATCHES[c] %@", regex).evaluate(with: email)
@@ -173,38 +176,35 @@ extension FormManager {
 // MARK: - Form Submission
 
 extension FormManager {
-
-    /// Submits the form data asynchronously after validating input and optionally collecting logs.
+    
+    /// Submits the form asynchronously, handling validation, optional log collection, network
+    /// request construction, and response handling.
     ///
-    /// This method performs the following steps:
-    /// - Validates user input fields.
-    /// - Logs any validation failures and throws an error if necessary.
-    /// - Optionally collects diagnostic logs if `shouldCollectLogs` is `true`.
-    /// - Prepares a request payload with form details.
-    /// - Sends a multipart form submission to the configured API endpoint.
-    /// - Handles the API response, updating the submission state and logging results.
-    ///
-    /// - Throws:
-    ///   - `FormValidationError` if form validation fails.
-    ///   - Any error thrown during log collection, request building, or network communication.
+    /// - Throws: A `FormResponse` error if validation fails, a network issue occurs, or the
+    /// server responds with an error.
     @MainActor
     public func submit() async throws {
-
+        
+        // Start submission flow
         logger.info("Starting form submission")
         self.progressState = .starting
-
+        
+        // Validate input before proceeding
         let validationErrors = validateFormData()
         guard validationErrors.isEmpty else {
-            let message = "Form validation failed: \(validationErrors.map(\.rawValue).joined(separator: ", "))"
-            logger.warning("\(message, privacy: .public)")
+            let mappedErrors = validationErrors.map(\.rawValue).joined(separator: ", ")
+            logger.error("Form validation failed: \(mappedErrors)")
             self.progressState = .idle
-            throw FormValidationError(invalidFields: validationErrors)
+            throw FormResponse.validationFailed(invalidFields: validationErrors)
         }
-
+        
+        // Clear any old validation errors
         self.fieldErrors = [:]
         self.progressState = .fetchingLog
+        
         var logData = ""
-
+        
+        // Conditionally fetch logs if enabled
         if shouldCollectLogs {
             logger.info("Collecting logs")
             try await config.loggerManager.fetchLogEntries()
@@ -213,32 +213,45 @@ extension FormManager {
         } else {
             logger.info("Log collection skipped by user")
         }
-
+        
+        // Resolve repository based on form type
         let repo = config.repository.getRepository(for: formType)
-
+        
+        // Construct the request body
         let requestBody = FormRequestBody(
             title: userInput.title,
-            description: userInput.description,
+            message: userInput.message,
             repository: repo,
             label: formType.rawValue,
             contact: allowContact ? userInput.contact : nil
         )
-
+        
         let message = "Submitting form to \(config.apiURL.absoluteString) for repo '\(repo)' with label '\(formType.rawValue)'"
         logger.info("\(message, privacy: .public)")
         self.progressState = .submitting
-
+        
+        // Attempt submission and handle response
         do {
             let (_, response) = try await makeMultipartRequest(
                 to: config.apiURL,
                 requestBody: requestBody,
                 logData: logData
             )
-
+            
             try await handleResponse(response)
             logger.info("Form submission successful: HTTP \(response.statusCode)")
             self.progressState = .idle
+            
+        } catch let urlError as URLError {
+            
+            // Handle known network errors
+            logger.error("Network error: \(urlError.code.rawValue) – \(urlError.localizedDescription, privacy: .public)")
+            self.progressState = .idle
+            throw FormResponse.networkError(urlError)
+            
         } catch {
+            
+            // Handle all other unexpected errors
             logger.error("Form submission failed: \(String(describing: error))")
             self.progressState = .idle
             throw error
@@ -249,57 +262,71 @@ extension FormManager {
 // MARK: - Multipart Form
 
 extension FormManager {
-
-    /// Creates and sends a multipart HTTP request containing the form data and logs.
+    
+    /// Constructs and sends a multipart HTTP POST request containing the form data and optional
+    /// logs.
     ///
     /// - Parameters:
-    ///   - url: The target URL for the request.
-    ///   - requestBody: The form data to submit.
-    ///   - logData: The logs to attach, as a string.
-    /// - Returns: A tuple containing the response data and the HTTP response.
+    ///   - url: The endpoint to which the form will be submitted.
+    ///   - requestBody: The structured data payload representing the form content.
+    ///   - logData: Optional log string to attach as a `.gz` file.
+    /// - Returns: A tuple containing the response data and the HTTP response object.
+    /// - Throws: An error if encoding or the request fails, or if the response is invalid.
     @MainActor
     private func makeMultipartRequest(
         to url: URL,
         requestBody: FormRequestBody,
         logData: String
     ) async throws -> (Data, HTTPURLResponse) {
-
-        logger.info("Constructing multipart request for submission to \(url.absoluteString)")
-
+        
+        logger.info("Constructing multipart request for submission to \(url.absoluteString, privacy: .sensitive)")
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-
+        
+        // Set content type for multipart
         let boundary = UUID().uuidString
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-
+        request.setValue(
+            "multipart/form-data; boundary=\(boundary)",
+            forHTTPHeaderField: "Content-Type"
+        )
+        
+        // Encode the form data and logs into multipart format
         let httpBody = try createMultipartBody(
             boundary: boundary,
             requestBody: requestBody,
             logs: logData
         )
         request.httpBody = httpBody
-        request.setValue("\(httpBody.count)", forHTTPHeaderField: "Content-Length")
-
+        request.setValue(
+            "\(httpBody.count)",
+            forHTTPHeaderField: "Content-Length"
+        )
+        
         logger.info("Multipart request constructed with body size \(httpBody.count) bytes")
-
+        
+        // Send the request
         let (data, response) = try await URLSession.shared.data(for: request)
-
+        
+        // Validate the HTTP response
         guard let httpResponse = response as? HTTPURLResponse else {
             logger.error("Server response was not a valid HTTPURLResponse")
             throw URLError(.badServerResponse)
         }
-
+        
         logger.info("Received HTTP response with status code \(httpResponse.statusCode)")
         return (data, httpResponse)
     }
-
-    /// Creates the multipart body containing encoded form data and compressed logs.
+    
+    /// Builds the HTTP multipart body containing the form data (as JSON) and optional logs
+    /// (as `.gz`).
     ///
     /// - Parameters:
-    ///   - boundary: The multipart boundary string.
-    ///   - requestBody: The encoded form request body.
-    ///   - logs: The raw log text to compress and include.
-    /// - Returns: A `Data` object representing the complete multipart body.
+    ///   - boundary: The boundary string for separating parts in the multipart payload.
+    ///   - requestBody: The structured form data to be encoded as JSON.
+    ///   - logs: A plain-text log string, optionally included as a compressed attachment.
+    /// - Returns: A `Data` object representing the full multipart HTTP body.
+    /// - Throws: An error if JSON encoding or log compression fails.
     private func createMultipartBody(
         boundary: String,
         requestBody: FormRequestBody,
@@ -308,21 +335,24 @@ extension FormManager {
         var body = Data()
         let lineBreak = "\r\n"
         let logFilename = "log-\(Date.now.filenameISO8601).log"
-
+        
+        // Encode the request body as JSON
         let jsonData = try JSONEncoder().encode(requestBody)
         logger.info("Encoded request body to JSON successfully, size: \(jsonData.count) bytes")
-
+        
+        // Add JSON part
         body.append("--\(boundary)\(lineBreak)")
         body.append("Content-Disposition: form-data; name=\"requestBody\"\(lineBreak)")
         body.append("Content-Type: application/json\(lineBreak)\(lineBreak)")
         body.append(jsonData)
         body.append(lineBreak)
-
+        
+        // Add compressed log file if logs are present
         if !logs.isEmpty {
             let compressedLogs = try logs.data(using: .utf8)?.gzipped() ?? Data()
             if !compressedLogs.isEmpty {
                 logger.info("Including compressed log file '\(logFilename).gz', size: \(compressedLogs.count) bytes")
-
+                
                 body.append("--\(boundary)\(lineBreak)")
                 body.append("Content-Disposition: form-data; name=\"logs\"; filename=\"\(logFilename).gz\"\(lineBreak)")
                 body.append("Content-Type: application/gzip\(lineBreak)\(lineBreak)")
@@ -334,9 +364,10 @@ extension FormManager {
         } else {
             logger.info("No logs included in multipart body")
         }
-
+        
+        // Close the multipart body
         body.append("--\(boundary)--\(lineBreak)")
-
+        
         return body
     }
 }
@@ -344,39 +375,61 @@ extension FormManager {
 // MARK: - Network Results
 
 extension FormManager {
-
-    /// Handles the server response after submitting the form.
+    
+    /// Handles the server's HTTP response after form submission.
     ///
-    /// - Parameter response: The HTTP response received.
-    /// - Throws: A `FormResponse` error if the status code indicates failure.
+    /// Based on the HTTP status code, this method logs relevant information, updates the progress
+    /// state, clears the form if configured, or throws an appropriate error.
+    ///
+    /// - Parameter response: The HTTP response received from the server.
+    /// - Throws: A `FormResponse` error for known failure scenarios, or `.unexpectedError` for unknown cases.
     @MainActor
-    private func handleResponse(_ response: HTTPURLResponse) async throws {
+    private func handleResponse(
+        _ response: HTTPURLResponse
+    ) async throws {
         logger.info("Handling server response, status code: \(response.statusCode)")
-
+        
         switch response.statusCode {
+                
             case 200...299:
                 logger.info("Form submission successful")
+                
+                // Check if the form should be cleared
                 if config.shouldClearForm {
-                    logger.info("Clearing form after successful submission (delay: \(self.config.clearFormDelay, privacy: .public)s)")
-                    try? await Task.sleep(for: .seconds(config.clearFormDelay))
+                    logger.info("Clearing form after successful submission (delay: \(self.config.clearFormDelay.formatted()))")
+                    
+                    let totalDuration = config.clearFormDelay
+                    let steps = 10
+                    let stepDuration = totalDuration / steps
+                    
+                    // Gradually update progress state with countdown
+                    for step in (1...steps).reversed() {
+                        let secondsLeft = max(1, Int((Double(step) / Double(steps)) * Double(totalDuration.components.seconds)))
+                        progressState = .clearingForm(timeRemaining: secondsLeft)
+                        try? await Task.sleep(for: stepDuration)
+                    }
+                    
+                    // Reset form to default input state
                     userInput = .default
                 }
+                
+                // Mark progress as complete
                 progressState = .completed
-
+                
             case 400:
                 logger.warning("Form submission failed: bad request (400)")
                 throw FormResponse.badRequest
-
+                
             case 401:
                 logger.warning("Form submission failed: unauthorized (401)")
                 throw FormResponse.unauthorized
-
+                
             case 500:
                 logger.error("Form submission failed: server error (500)")
                 throw FormResponse.serverError
-
+                
             default:
-                logger.error("Form submission failed: unexpected status code \(response.statusCode, privacy: .public)")
+                logger.error("Form submission failed: unexpected status code \(response.statusCode)")
                 throw FormResponse.unexpectedError
         }
     }

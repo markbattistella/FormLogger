@@ -6,36 +6,43 @@
 
 import Foundation
 
-/// A structure representing user-provided input for a form submission.
+/// A model representing user-provided input for a form submission.
 ///
-/// Includes the title, description, and optional contact information.
+/// This struct captures what the user enters in the form UI and can later be validated or
+/// transformed into a request body for backend submission.
 public struct UserFormInput {
 
-    /// The title of the form input, typically a brief summary.
+    /// The title or subject entered by the user.
     public var title: String
 
-    /// A detailed description provided by the user.
-    public var description: String
+    /// The main message content entered by the user.
+    public var message: String
 
-    /// Optional contact information for follow-up or identification.
+    /// The user's contact details (name and email).
     public var contact: Contact
 
-    /// Creates a new `UserFormInput` instance.
+    /// Creates a new instance of `UserFormInput`.
     ///
     /// - Parameters:
-    ///   - title: The summary or headline of the input.
-    ///   - description: A more detailed explanation or message.
-    ///   - contact: Optional contact details.
-    public init(title: String, description: String, contact: Contact) {
+    ///   - title: The form's title input.
+    ///   - message: The form's message body.
+    ///   - contact: The user's contact information.
+    public init(
+        title: String,
+        message: String,
+        contact: Contact
+    ) {
         self.title = title
-        self.description = description
+        self.message = message
         self.contact = contact
     }
 
-    /// A default empty `UserFormInput` instance.
-    ///
-    /// Useful for initialising forms or resetting user input.
+    /// A default (empty) form input used to initialise the form UI or reset state.
     public static var `default`: UserFormInput {
-        UserFormInput(title: "", description: "", contact: .init(name: "", email: ""))
+        UserFormInput(
+            title: "",
+            message: "",
+            contact: .init(name: "", email: "")
+        )
     }
 }

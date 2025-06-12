@@ -7,27 +7,28 @@
 import Foundation
 @_exported import SimpleLogger
 
-/// A protocol defining the configuration requirements for a form submission system.
+/// A configuration protocol defining dependencies and behavioural options for a form submission
+/// flow.
 ///
-/// Implementations provide the necessary details for behaviour, data handling, and external
-/// integration.
+/// Types conforming to `FormConfiguration` must provide the necessary settings and dependencies
+/// for the form to operate, including network targets, logging, and persistence behaviour.
 public protocol FormConfiguration {
 
-    /// The endpoint URL where the form data should be submitted.
+    /// The base URL for API requests related to the form.
     var apiURL: URL { get }
 
-    /// The maximum number of characters allowed in user input fields (e.g. title or description).
+    /// The maximum number of characters allowed in text input fields.
     var characterLimit: Int { get }
 
-    /// A Boolean value indicating whether the form should automatically clear after submission.
+    /// Indicates whether the form should be cleared after a successful submission.
     var shouldClearForm: Bool { get }
 
-    /// The delay (in seconds) before the form is cleared after a successful submission.
-    var clearFormDelay: TimeInterval { get }
+    /// The delay (in seconds) before the form is cleared, if `shouldClearForm` is `true`.
+    var clearFormDelay: Duration { get }
 
-    /// The logger configuration used to determine which logs to fetch or export with the form.
+    /// A logging manager used to record form events and errors.
     var loggerManager: LoggerManager { get }
 
-    /// The strategy used to determine which repository to submit the form to.
+    /// A resolver that provides access to data repositories used by the form.
     var repository: RepositoryResolver { get }
 }
