@@ -416,9 +416,11 @@ extension FormManager {
                     userInput = .default
                 }
                 
-                // Mark progress as complete
+                // Show completed state briefly, then reset
                 progressState = .completed
-                
+                try? await Task.sleep(for: .seconds(2))
+                progressState = .idle
+
             case 400:
                 logger.warning("Form submission failed: bad request (400)")
                 throw FormResponse.badRequest
@@ -432,7 +434,9 @@ extension FormManager {
                 throw FormResponse.serverError
                 
             default:
-                logger.error("Form submission failed: unexpected status code \(response.statusCode)")
+                logger.error(
+                    "Form submission failed: unexpected status code \(response.statusCode, privacy: .public)"
+                )
                 throw FormResponse.unexpectedError
         }
     }
