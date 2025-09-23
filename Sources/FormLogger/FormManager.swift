@@ -188,7 +188,10 @@ extension FormManager {
         // Start submission flow
         logger.info("Starting form submission")
         self.progressState = .starting
-        
+
+        // Give SwiftUI a chance to re-render before validation/logging
+        await Task.yield()
+
         // Validate input before proceeding
         let validationErrors = validateFormData()
         guard validationErrors.isEmpty else {
