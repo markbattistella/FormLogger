@@ -31,4 +31,10 @@ public protocol FormConfiguration {
 
     /// A resolver that provides access to data repositories used by the form.
     var repository: RepositoryResolver { get }
+
+    var customMetadata: [String : String]? { get }
+}
+
+public extension FormConfiguration {
+    var customMetadata: [String : String]? { nil }
 }

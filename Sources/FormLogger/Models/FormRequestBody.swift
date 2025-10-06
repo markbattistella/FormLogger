@@ -32,7 +32,9 @@ internal struct FormRequestBody: Encodable {
     
     /// Metadata about the client (e.g. app version, platform, etc.), auto-filled.
     internal let client: ClientMetadata
-    
+
+    internal let customMetadata: [String : String]?
+
     /// Creates a new instance of `FormRequestBody` with the required user input and context.
     ///
     /// - Parameters:
@@ -46,7 +48,8 @@ internal struct FormRequestBody: Encodable {
         message: String,
         repository: Repository,
         label: String,
-        contact: Contact?
+        contact: Contact?,
+        customMetaData: [String: String]? = nil
     ) {
         self.id = UUID().uuidString
         self.title = title
@@ -55,5 +58,6 @@ internal struct FormRequestBody: Encodable {
         self.label = label
         self.contact = contact
         self.client = ClientMetadata()
+        self.customMetadata = customMetaData
     }
 }

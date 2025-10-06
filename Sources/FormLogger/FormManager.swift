@@ -226,7 +226,8 @@ extension FormManager {
             message: userInput.message,
             repository: repo,
             label: formType.rawValue,
-            contact: allowContact ? userInput.contact : nil
+            contact: allowContact ? userInput.contact : nil,
+            customMetaData: config.customMetadata
         )
         
         let message = "Submitting form to \(config.apiURL.absoluteString) for repo '\(repo)' with label '\(formType.rawValue)'"
