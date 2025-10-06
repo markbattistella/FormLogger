@@ -32,9 +32,12 @@ public protocol FormConfiguration {
     /// A resolver that provides access to data repositories used by the form.
     var repository: RepositoryResolver { get }
 
+    /// Optional dictionary of custom metadata to include with each submission.
     var customMetadata: [String : String]? { get }
 }
 
 public extension FormConfiguration {
+
+    /// Default implementation returning `nil` for optional custom metadata.
     var customMetadata: [String : String]? { nil }
 }

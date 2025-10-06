@@ -33,16 +33,19 @@ internal struct FormRequestBody: Encodable {
     /// Metadata about the client (e.g. app version, platform, etc.), auto-filled.
     internal let client: ClientMetadata
 
+    /// Optional dictionary of additional key–value metadata supplied by the host app.
     internal let customMetadata: [String : String]?
 
-    /// Creates a new instance of `FormRequestBody` with the required user input and context.
+    /// Creates a new form request body containing message details, client metadata, and optional
+    /// custom metadata defined by the host application.
     ///
     /// - Parameters:
-    ///   - title: The subject or heading of the form.
-    ///   - message: The body message of the form.
-    ///   - repository: The repository or project the form is associated with.
-    ///   - label: A custom label to tag the submission.
-    ///   - contact: Optional user contact information.
+    ///   - title: The short title or subject of the submitted form.
+    ///   - message: The main message body entered by the user.
+    ///   - repository: The repository destination for storing or processing the form data.
+    ///   - label: A tag or identifier describing the form type.
+    ///   - contact: Optional contact details provided by the user.
+    ///   - customMetaData: Optional dictionary of additional metadata to include with the request.
     internal init(
         title: String,
         message: String,
