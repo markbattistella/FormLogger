@@ -37,8 +37,8 @@ public final class FormManager {
     private var progressState: ProgressState
     
     /// Configuration object providing environment-specific behaviour and dependencies.
-    private let config: FormConfiguration
-    
+    private var config: FormConfiguration
+
     /// A dictionary of validation errors keyed by form field, updated after validation.
     public private(set) var fieldErrors: [FormField: String]
     
@@ -440,5 +440,25 @@ extension FormManager {
                 )
                 throw FormResponse.unexpectedError
         }
+    }
+}
+
+// MARK: - Configuration
+
+extension FormManager {
+
+    /// Updates the form manager’s configuration at runtime.
+    ///
+    /// Use this method when environment-dependent or dynamically generated settings (such as API
+    /// endpoints, metadata, or repository mappings) become available after the manager has been
+    /// created.
+    ///
+    /// - Parameter configuration: A new `FormConfiguration` instance that replaces the manager’s
+    /// existing configuration.
+    ///
+    /// - Note: Updating the configuration does not reset user input or progress state; it only
+    /// changes the underlying behaviour and metadata used for future submissions.
+    public func updateConfiguration(_ configuration: FormConfiguration) {
+        self.config = configuration
     }
 }
