@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "FormLogger",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v17),
         .macCatalyst(.v17),
@@ -29,10 +30,7 @@ let package = Package(
                 "SimpleLogger",
                 "PlatformChecker"
             ],
-            exclude: [],
-            swiftSettings: [
-                .enableExperimentalFeature("StrictConcurrency")
-            ]
+            resources: [.process("Resources")]
         )
     ]
 )
