@@ -7,6 +7,12 @@
 import Foundation
 import Observation
 
+/// The bundle associated with the current Swift Package module.
+///
+/// Use this property to access resources (such as assets, storyboards, or JSON files) included in
+/// the package target’s bundle.
+public let module: Bundle = .module
+
 /// An observable class responsible for managing the lifecycle and state of a form submission.
 ///
 /// `FormManager` handles user input, progress tracking, validation errors, and integration
