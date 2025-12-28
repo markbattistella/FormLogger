@@ -20,7 +20,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/markbattistella/SimpleLogger", from: "2.0.0"),
+//        .package(url: "https://github.com/markbattistella/SimpleLogger", from: "25.12.0"),
+        .package(path: "../SimpleLogger"),
         .package(url: "https://github.com/markbattistella/PlatformChecker", from: "1.0.0")
     ],
     targets: [

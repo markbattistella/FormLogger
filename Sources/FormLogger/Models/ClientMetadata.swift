@@ -7,26 +7,45 @@
 import Foundation
 import PlatformChecker
 
-/// A structure representing metadata about the client app and operating system.
+/// Metadata describing the client application and runtime environment.
 ///
-/// Useful for logging, diagnostics, analytics, or when sending app context to a backend service.
+/// This type aggregates identifying information about the app and the operating system it is
+/// running on. It is intended to be encoded and sent with network requests for diagnostics,
+/// analytics, or backend processing.
 internal struct ClientMetadata: Encodable {
 
-    /// The internal name of the app, taken from `CFBundleName`.
-    internal let appName: String = Bundle.main.appName
+    /// The app's internal bundle name.
+    internal let appName: String
 
-    /// The user-facing display name of the app, taken from `CFBundleDisplayName`.
-    internal let appDisplayName: String = Bundle.main.appDisplayName
+    /// The user-facing display name of the app.
+    internal let appDisplayName: String
 
-    /// The version number of the app (e.g., "1.2.3"), from `CFBundleShortVersionString`.
-    internal let appVersion: String = Bundle.main.appVersion
+    /// The app's marketing version.
+    internal let appVersion: String
 
-    /// The build number of the app, from `CFBundleVersion`.
-    internal let buildNumber: String = Bundle.main.buildNumber
+    /// The app's build number.
+    internal let buildNumber: String
 
-    /// The app’s bundle identifier (e.g., "com.example.MyApp").
-    internal let bundleId: String = Bundle.main.bundleId
+    /// The app's bundle identifier.
+    internal let bundleId: String
 
-    /// The current operating system as a string (e.g., "iOS", "macOS").
-    internal let currentOS: String = Platform.currentOS.rawValue
+    /// The current operating system the app is running on.
+    ///
+    /// This value is derived from `Platform.currentOS`.
+    internal let currentOS: String
+
+    /// The operating system version string.
+    internal let osVersion: String
+
+    /// Creates a new `ClientMetadata` instance populated with values from the current app bundle
+    /// and runtime environment.
+    internal init() {
+        self.appName = Bundle.main.appName
+        self.appDisplayName = Bundle.main.appDisplayName
+        self.appVersion = Bundle.main.appVersion
+        self.buildNumber = Bundle.main.buildNumber
+        self.bundleId = Bundle.main.bundleId
+        self.currentOS = Platform.currentOS.rawValue
+        self.osVersion = ProcessInfo.processInfo.operatingSystemVersionString
+    }
 }

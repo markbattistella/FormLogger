@@ -11,7 +11,7 @@
 
 </div>
 
-`FormLogger` is a drop-in SwiftUI-compatible manager for logging bugs, feature requests, and feedback - with flexible support for custom UI and backends. You can roll your own interface while leveraging the powerful `FormManager`. It’s designed to integrate with lightweight backends (like a Cloudflare Worker) that push issues to GitHub via their API.
+`FormLogger` is a drop-in SwiftUI-compatible manager for logging bugs, feature requests, and feedback - with flexible support for custom UI and backends. You can roll your own interface while leveraging the powerful `FormManager`. It's designed to integrate with lightweight backends (like a Cloudflare Worker) that push issues to GitHub via their API.
 
 ## Features
 
@@ -129,7 +129,7 @@ Perfect when:
 
 ## Validation
 
-Before submission, `FormManager` checks the user’s input for completeness and correctness. If validation fails, it throws a `FormValidationError`.
+Before submission, `FormManager` checks the user's input for completeness and correctness. If validation fails, it throws a `FormValidationError`.
 
 ```swift
 public struct FormValidationError: Error {
@@ -186,14 +186,14 @@ While `FormLogger` is backend-agnostic, it's built to work beautifully with ligh
 
 ### What I used
 
-I’ve set mine up using:
+I've set mine up using:
 
 - A GitHub App for API authentication
 - A Cloudflare Worker to receive and forward form data
 - Logs and metadata are submitted as a multipart form
 
-<!-- > [!TIP] -->
-<!-- > I wrote about [my setup](https://markbattistella.com/<TO-FILL>) and how to set your own up. -->
+> [!TIP] 
+> I wrote about setting this up for yourself - [part 1](https://markbattistella.com/writings/2025/rethinking-feedback-p1/), [part 2](https://markbattistella.com/writings/2025/rethinking-feedback-p2/), [part 3](https://markbattistella.com/writings/2025/rethinking-feedback-p3/), and [part 4](https://markbattistella.com/writings/2025/rethinking-feedback-p4/) 
 
 This lets me forward validated SwiftUI form data directly to GitHub as an issue — but you can use any backend that accepts JSON and logs.
 
@@ -203,4 +203,4 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 ## License
 
-`FormLogger` is available under the MIT license. See the LICENSE file for more information.
+`FormLogger` is available under the MIT license. See the LICENCE file for more information.
