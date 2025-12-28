@@ -85,7 +85,7 @@
       }
     },
     "Access Denied" : {
-      "comment" : "Error title shown when the user is not authorized to perform the requested action or access the resource.",
+      "comment" : "Error title shown when the user is not authorised to perform the requested action or access the resource.",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -3006,8 +3006,12 @@
         }
       }
     },
+    "You're not authorised to perform this action. Please log in and try again." : {
+      "comment" : "Detailed error message shown when the user attempts an action that requires authentication or higher privileges."
+    },
     "You're not authorized to perform this action. Please log in and try again." : {
       "comment" : "Detailed error message shown when the user attempts an action that requires authentication or higher privileges.",
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {

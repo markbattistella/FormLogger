@@ -1,4 +1,4 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 5.10
 
 import PackageDescription
 
@@ -14,23 +14,16 @@ let package = Package(
         .visionOS(.v1)
     ],
     products: [
-        .library(
-            name: "FormLogger",
-            targets: ["FormLogger"]
-        )
+        .library(name: "FormLogger", targets: ["FormLogger"])
     ],
     dependencies: [
-//        .package(url: "https://github.com/markbattistella/SimpleLogger", from: "25.12.0"),
-        .package(path: "../SimpleLogger"),
+        .package(url: "https://github.com/markbattistella/SimpleLogger", from: "25.12.0"),
         .package(url: "https://github.com/markbattistella/PlatformChecker", from: "1.0.0")
     ],
     targets: [
         .target(
             name: "FormLogger",
-            dependencies: [
-                "SimpleLogger",
-                "PlatformChecker"
-            ],
+            dependencies: ["SimpleLogger", "PlatformChecker"],
             resources: [.process("Resources")]
         )
     ]
