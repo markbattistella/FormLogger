@@ -32,13 +32,13 @@ extension FormManager {
         internal var label: String {
             switch self {
                 case .title:
-                    String(localized: "Title")
+                    String(localized: "Title", bundle: .module)
                 case .message:
-                    String(localized: "Message")
+                    String(localized: "Message", bundle: .module)
                 case .contactName:
-                    String(localized: "Contact name")
+                    String(localized: "Contact name", bundle: .module)
                 case .contactEmail:
-                    String(localized: "Contact email")
+                    String(localized: "Contact email", bundle: .module)
             }
         }
 
@@ -48,13 +48,13 @@ extension FormManager {
         internal var errorMessage: String {
             switch self {
                 case .title:
-                    String(localized: "Please provide a title.")
+                    String(localized: "Please provide a title.", bundle: .module)
                 case .message:
-                    String(localized: "Please provide a message.")
+                    String(localized: "Please provide a message.", bundle: .module)
                 case .contactName:
-                    String(localized: "Please provide your name.")
+                    String(localized: "Please provide your name.", bundle: .module)
                 case .contactEmail:
-                    String(localized: "Please provide a valid email address.")
+                    String(localized: "Please provide a valid email address.", bundle: .module)
             }
         }
     }

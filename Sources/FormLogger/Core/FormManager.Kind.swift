@@ -47,11 +47,11 @@ extension FormManager {
         public var label: String {
             switch self {
                 case .bug:
-                    String(localized: "Report a bug")
+                    String(localized: "Report a bug", bundle: .module)
                 case .feature:
-                    String(localized: "Request a feature")
+                    String(localized: "Request a feature", bundle: .module)
                 case .feedback:
-                    String(localized: "Send feedback")
+                    String(localized: "Send feedback", bundle: .module)
             }
         }
 

@@ -12,7 +12,7 @@ import Observation
 ///
 /// Use this bundle to load assets such as localized strings, images, or other resources that are
 /// packaged with the module.
-public let module: Bundle = .module
+internal let module: Bundle = .module
 
 /// Manages the state, validation, and submission lifecycle of a user-facing form.
 ///
@@ -28,8 +28,6 @@ public let module: Bundle = .module
 @Observable
 public final class FormManager {
     
-    // MARK: - UI Form Attributes
-    
     /// The primary title displayed at the top of the form.
     public var title: String = ""
     
@@ -41,9 +39,7 @@ public final class FormManager {
     
     /// The email address of the contact submitting the form.
     public var contactEmail: String = ""
-    
-    // MARK: - UI Form Toggle
-    
+
     /// The type of form being submitted.
     ///
     /// This value typically controls conditional UI behaviour and downstream handling logic.
@@ -55,22 +51,25 @@ public final class FormManager {
     /// A Boolean value indicating whether diagnostic logs should be collected and attached to the
     /// submission.
     public var shouldCollectLogs: Bool = true
-    
-    // MARK: - Form Validation
-    
+
     /// Validation errors keyed by form field.
     ///
     /// This dictionary is populated during validation and is read-only to external consumers to
     /// preserve consistency of validation state.
     public private(set) var fieldErrors: [Field : String] = [:]
-    
-    // MARK: - Progress State
-    
+
     /// The current progress state of the form submission lifecycle.
     ///
     /// This value reflects whether the form is idle, validating, submitting, or has completed.
     public private(set) var progressState: ProgressState = .idle
-    
+
+    /// The current validation state of the form.
+    ///
+    /// This value tracks the lifecycle of form validation independently from submission progress
+    /// and is used to distinguish between unvalidated, validating, valid, and invalid states.
+    @ObservationIgnored
+    private var validationState: ValidationState = .unvalidated
+
     /// The configuration used to customise form behaviour and logging.
     ///
     /// This property is excluded from observation because it does not directly affect UI
@@ -121,17 +120,18 @@ extension FormManager {
     /// A Boolean value indicating whether the form can be submitted.
     ///
     /// The form can be submitted only when:
-    /// - All fields are valid, and
-    /// - No submission or validation process is currently in progress.
+    /// - The form has been validated successfully, and
+    /// - No validation or submission process is currently in progress.
     public var canSubmit: Bool {
-        isFormValid && isProcessing == false
+        validationState == .valid && !isProcessing
     }
     
-    /// A Boolean value indicating whether the form passes validation.
+    /// A Boolean value indicating whether the form is currently in a valid state.
     ///
-    /// The form is considered valid when there are no validation errors recorded for any field.
+    /// This value is `true` only after a successful validation pass has completed. A newly
+    /// initialised form, or a form that has not yet been validated, is not considered valid.
     public var isFormValid: Bool {
-        fieldErrors.isEmpty
+        validationState == .valid
     }
     
     /// The maximum allowed number of characters for the message field.
@@ -166,11 +166,17 @@ extension FormManager {
     
     /// Validates all relevant form fields and updates the validation state.
     ///
-    /// This method clears any existing errors, validates required fields, and conditionally
-    /// validates contact information based on user consent.
+    /// This method performs a full validation pass over the form by:
+    /// - Clearing any existing validation errors
+    /// - Validating required title and message fields
+    /// - Conditionally validating contact details when contact is allowed
+    ///
+    /// The validation lifecycle is reflected in `validationState`, transitioning through
+    /// `.validating` and then to either `.valid` or `.invalid`.
     ///
     /// - Returns: `true` if all fields pass validation; otherwise, `false`.
     private func validateFormFields() -> Bool {
+        validationState = .validating
         clearAllErrors()
         
         validateTitle()
@@ -182,13 +188,14 @@ extension FormManager {
         }
         
         let isValid = fieldErrors.isEmpty
+        validationState = isValid ? .valid : .invalid
         if isValid {
             logger.info("Form validation passed")
         } else {
             logger.info("Form validation failed with \(self.fieldErrors.count) error(s)")
         }
         
-        return fieldErrors.isEmpty
+        return isValid
     }
     
     /// Validates the form title field.
@@ -421,7 +428,7 @@ extension FormManager {
         }
     }
     
-#if DEBUG
+    #if DEBUG
     /// Prints the form submission payload and attachments to the console.
     ///
     /// This method is used only in debug builds to inspect the data that would be sent during a
@@ -458,7 +465,7 @@ extension FormManager {
         
         print("================================")
     }
-#endif
+    #endif
 }
 
 // MARK: - Form Clearing
