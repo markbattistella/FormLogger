@@ -35,7 +35,7 @@ public protocol FormConfiguration {
     var repository: Repository.Resolver { get }
 
     /// Optional custom metadata to include with each form submission.
-    var customMetadata: [String : String]? { get }
+    var customMetadata: [String : String]? { get set }
 
     /// A Boolean value indicating whether submissions should be treated as a dry run and not actually sent to the backend.
     var isDryRun: Bool { get }
