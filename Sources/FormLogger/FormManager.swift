@@ -551,7 +551,7 @@ extension FormManager {
     ///
     /// Each case provides user-facing metadata such as a localized label and an associated SF
     /// Symbols system image.
-    public enum Kind: String, CaseIterable, Identifiable, CustomStringConvertible {
+    public enum Kind: String, CaseIterable, Identifiable, CustomStringConvertible, Codable {
 
         /// A submission intended to report a software defect or issue.
         case bug
