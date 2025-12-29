@@ -43,15 +43,30 @@ extension FormManager {
                 case .idle:
                     return ""
                 case .exportingLogs:
-                    return String(localized: "Exporting logs…", bundle: .module)
+                    return String(
+                        localized: "Exporting logs…",
+                        bundle: .module
+                    )
                 case .submitting:
-                    return String(localized: "Submitting…", bundle: .module)
+                    return String(
+                        localized: "Submitting…",
+                        bundle: .module
+                    )
                 case .processingResponse:
-                    return String(localized: "Processing response…", bundle: .module)
+                    return String(
+                        localized: "Processing response…",
+                        bundle: .module
+                    )
                 case .clearingForm(let timeRemaining):
-                    return String(localized: "Form will clear in \(timeRemaining)s…", bundle: .module)
+                    return String(
+                        localized: "Form will clear in \(timeRemaining) seconds…",
+                        bundle: .module
+                    )
                 case .completed:
-                    return String(localized: "Submitted", bundle: .module)
+                    return String(
+                        localized: "Submitted",
+                        bundle: .module
+                    )
             }
         }
 

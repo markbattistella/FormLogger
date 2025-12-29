@@ -214,7 +214,8 @@ extension FormManager {
             setError(
                 .message,
                 message: String(
-                    localized: "Message must be under \(config.characterLimit) characters."
+                    localized: "Message must be under \(config.characterLimit) characters.",
+                    bundle: .module
                 )
             )
         }

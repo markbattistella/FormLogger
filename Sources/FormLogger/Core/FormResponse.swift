@@ -42,30 +42,35 @@ extension FormManager {
                 case .badRequest:
                     return String(
                         localized: "Invalid Request",
+                        bundle: .module,
                         comment: "Error title shown when the app cannot process the user's request due to invalid input or parameters."
                     )
 
                 case .unauthorized:
                     return String(
                         localized: "Access Denied",
+                        bundle: .module,
                         comment: "Error title shown when the user is not authorised to perform the requested action or access the resource."
                     )
 
                 case .serverError:
                     return String(
                         localized: "Server Error",
+                        bundle: .module,
                         comment: "Error title shown when the server returns an unexpected or invalid response."
                     )
 
                 case .unexpectedStatus:
                     return String(
                         localized: "Unexpected Response",
+                        bundle: .module,
                         comment: "Error title shown when the server returns an unrecognised status code."
                     )
 
                 case .networkError:
                     return String(
                         localized: "Network Error",
+                        bundle: .module,
                         comment: "Error title shown when there is no internet connection or the network request cannot be completed."
                     )
             }
@@ -80,24 +85,28 @@ extension FormManager {
                 case .badRequest:
                     return String(
                         localized: "The request was invalid. Please check the form and try again.",
+                        bundle: .module,
                         comment: "Detailed error message shown when the user's request cannot be processed due to invalid input or parameters."
                     )
 
                 case .unauthorized:
                     return String(
-                        localized: "You're not authorised to perform this action. Please log in and try again.",
+                        localized: "You're not authorized to perform this action. Please log in and try again.",
+                        bundle: .module,
                         comment: "Detailed error message shown when the user attempts an action that requires authentication or higher privileges."
                     )
 
                 case .serverError:
                     return String(
                         localized: "Something went wrong on our end. Please try again later.",
+                        bundle: .module,
                         comment: "Detailed error message shown when the server encounters an internal problem or returns an unexpected response."
                     )
 
                 case .unexpectedStatus(let statusCode):
                     return String(
                         localized: "The server returned an unexpected response (code \(statusCode)). Please try again later.",
+                        bundle: .module,
                         comment: "Detailed error message shown when the server returns an unrecognised HTTP status code."
                     )
 
@@ -105,6 +114,7 @@ extension FormManager {
                     let baseMessage = error.code.friendlyDescription
                     let additionalInfo = String(
                         localized: "If this keeps happening, please contact support.",
+                        bundle: .module,
                         comment: "Additional suggestion shown after a network error, encouraging the user to reach out for support."
                     )
                     return "\(baseMessage)\n\n\(additionalInfo)"

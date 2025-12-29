@@ -4,3178 +4,486 @@
     "A network error occurred. Please try again." : {
       "comment" : "Fallback error message for unknown network errors",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "حدث خطأ في الشبكة. يرجى المحاولة مرة أخرى."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ein Netzwerkfehler ist aufgetreten. Bitte versuchen Sie es erneut."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A network error occurred. Please try again."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A network error occurred. Please try again."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se produjo un error de red. Inténtalo de nuevo."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Une erreur réseau est survenue. Veuillez réessayer."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "नेटवर्क त्रुटि हुई। कृपया पुन: प्रयास करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si è verificato un errore di rete. Riprova."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ネットワークエラーが発生しました。もう一度やり直してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "네트워크 오류가 발생했습니다. 다시 시도해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ocorreu um erro de rede. Tente novamente."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "发生网络错误。请重试。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "發生網路錯誤。請重試。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حدث خطأ في الشبكة. يرجى المحاولة مرة أخرى." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Ein Netzwerkfehler ist aufgetreten. Bitte versuchen Sie es erneut." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "A network error occurred. Please try again." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "A network error occurred. Please try again." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Se produjo un error de red. Inténtalo de nuevo." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Une erreur réseau est survenue. Veuillez réessayer." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "नेटवर्क त्रुटि हुई। कृपया पुन: प्रयास करें।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Si è verificato un errore di rete. Riprova." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ネットワークエラーが発生しました。もう一度やり直してください。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "네트워크 오류가 발생했습니다. 다시 시도해 주세요." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Ocorreu um erro de rede. Tente novamente." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "发生网络错误。请重试。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "發生網路錯誤。請重試。" } }
       }
     },
     "Access Denied" : {
       "comment" : "Error title shown when the user is not authorised to perform the requested action or access the resource.",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تم رفض الوصول"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zugriff verweigert"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Access Denied"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Access Denied"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acceso denegado"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Accès refusé"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "पहुंच अस्वीकृत"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Accesso negato"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アクセス拒否"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "접근 거부됨"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acesso Negado"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "拒绝访问"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "拒絕存取"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تم رفض الوصول" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Zugriff verweigert" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Access Denied" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Access Denied" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Acceso denegado" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Accès refusé" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "पहुंच अस्वीकृत" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Accesso negato" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "アクセス拒否" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "접근 거부됨" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Acesso Negado" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "拒绝访问" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "拒絕存取" } }
       }
     },
     "Contact email" : {
       "comment" : "A label for an input field where a user can enter their email address.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "البريد الإلكتروني للتواصل"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kontakt-E-Mail"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contact email"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contact email"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Correo electrónico de contacto"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "E-mail de contact"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "संपर्क ईमेल"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Email di contatto"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "連絡先メールアドレス"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "연락처 이메일"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "E-mail de contato"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "联系电子邮件"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "聯絡電子郵件"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "البريد الإلكتروني للتواصل" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Kontakt-E-Mail" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Contact email" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Contact email" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Correo electrónico de contacto" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "E-mail de contact" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "संपर्क ईमेल" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Email di contatto" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "連絡先メールアドレス" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "연락처 이메일" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "E-mail de contato" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "联系电子邮件" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "聯絡電子郵件" } }
       }
     },
     "Contact name" : {
       "comment" : "A localized, user-facing label for the \"Contact name\" field in the form.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "اسم جهة الاتصال"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kontaktname"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contact name"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contact name"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nombre de contacto"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nom du contact"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "संपर्क का नाम"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nome contatto"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "担当者名"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "연락처 이름"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nome de contato"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "联系人姓名"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "聯絡人姓名"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اسم جهة الاتصال" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Kontaktname" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Contact name" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Contact name" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nombre de contacto" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Nom du contact" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "संपर्क का नाम" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Nome contatto" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "担当者名" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "연락처 이름" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Nome de contato" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "联系人姓名" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "聯絡人姓名" } }
+      }
+    },
+    "Contact name is required." : {
+      "comment" : "Default localized validation error message for the \"Contact name\" field.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اسم جهة الاتصال مطلوب." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Kontaktname ist erforderlich." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Contact name is required." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Contact name is required." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El nombre de contacto es obligatorio." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Le nom du contact est requis." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "संपर्क का नाम आवश्यक है।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Il nome del contatto è richiesto." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "担当者名は必須です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "연락처 이름은 필수입니다." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "O nome de contato é obrigatório." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "联系人姓名是必填项。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "聯絡人姓名為必填。" } }
+      }
+    },
+    "Enter a valid email address." : {
+      "comment" : "Default localized validation error message for the \"Contact email\" field when the input is not a valid email address.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أدخل عنوان بريد إلكتروني صالح." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Geben Sie eine gültige E-Mail-Adresse ein." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Enter a valid email address." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Enter a valid email address." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Introduce una dirección de correo electrónico válida." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Veuillez saisir une adresse e-mail valide." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "एक मान्य ईमेल पता दर्ज करें।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Inserisci un indirizzo email valido." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "有効なメールアドレスを入力してください。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "유효한 이메일 주소를 입력하세요." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Insira um endereço de e-mail válido." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "请输入有效的电子邮件地址。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "請輸入有效的電子郵件地址。" } }
       }
     },
     "Exporting logs…" : {
       "comment" : "Text displayed while the app is exporting logs.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تصدير السجلات…"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Protokolle werden exportiert…"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exporting logs…"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exporting logs…"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exportando registros…"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exportation des journaux…"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "लॉग एक्सपोर्ट किए जा रहे हैं…"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Esportazione log…"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ログを書き出し中…"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "로그 내보내는 중…"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exportando logs…"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在导出日志…"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在匯出日誌…"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تصدير السجلات…" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Protokolle werden exportiert…" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Exporting logs…" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Exporting logs…" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Exportando registros…" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Exportation des journaux…" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "लॉग एक्सपोर्ट किए जा रहे हैं…" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Esportazione log…" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ログを書き出し中…" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "로그 내보내는 중…" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Exportando logs…" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "正在导出日志…" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "正在匯出日誌…" } }
       }
     },
-    "Form will clear in %llds…" : {
-      "comment" : "A localized, user-facing message describing the current state. The argument is a duration, formatted as a count of seconds.",
+    "Form will clear in %lld seconds…" : {
+      "comment" : "A localized string that informs the user how many seconds remain before the form is cleared. The argument is the number of seconds.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "سيتم مسح النموذج خلال %lld ثانية…"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Formular wird in %lld s geleert…"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Form will clear in %llds…"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Form will clear in %llds…"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El formulario se borrará en %lld s…"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le formulaire s'effacera dans %lld s…"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "फ़ॉर्म %lld सेकंड में साफ़ हो जाएगा…"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il modulo verrà cancellato tra %lld s…"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld秒後にフォームがリセットされます…"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld초 후에 양식이 지워집니다…"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O formulário será limpo em %llds…"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "表单将在 %lld 秒内清除…"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "表單將在 %lld 秒內清除…"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "سيتم مسح النموذج خلال %lld ثانية…" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Das Formular wird in %lld Sekunden gelöscht…" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Form will clear in %lld seconds…" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Form will clear in %lld seconds…" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El formulario se borrará en %lld segundos…" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Le formulaire s'effacera dans %lld secondes…" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "फॉर्म %lld सेकंड में साफ़ हो जाएगा…" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Il modulo verrà cancellato tra %lld secondi…" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "フォームは %lld 秒後にクリアされます…" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "%lld초 후에 양식이 삭제됩니다…" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "O formulário será limpo em %lld segundos…" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "表单将在 %lld 秒后清除…" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "表單將在 %lld 秒後清除…" } }
       }
     },
     "If this keeps happening, please contact support." : {
       "comment" : "Additional suggestion shown after a network error, encouraging the user to reach out for support.",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "إذا استمر حدوث ذلك، يرجى الاتصال بالدعم."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sollte dies weiterhin auftreten, kontaktieren Sie bitte den Support."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If this keeps happening, please contact support."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If this keeps happening, please contact support."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si esto sigue ocurriendo, ponte en contacto con el soporte técnico."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si cela continue, veuillez contacter l'assistance."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "यदि ऐसा होता रहता है, तो कृपया सहायता टीम से संपर्क करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se il problema persiste, contatta l'assistenza."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "問題が解決しない場合は、サポートにお問い合わせください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "문제가 지속되면 고객 지원팀에 문의해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se isso continuar acontecendo, entre em contato com o suporte."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "如果这种情况持续发生，请联系支持人员。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "如果問題持續發生，請聯繫支援人員。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إذا استمر حدوث ذلك، يرجى الاتصال بالدعم." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Sollte dies weiterhin auftreten, kontaktieren Sie bitte den Support." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "If this keeps happening, please contact support." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "If this keeps happening, please contact support." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Si esto sigue ocurriendo, ponte en contacto con el soporte técnico." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Si cela continue, veuillez contacter l'assistance." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "यदि ऐसा होता रहता है, तो कृपया सहायता टीम से संपर्क करें।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Se il problema persiste, contatta l'assistenza." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "問題が解決しない場合は、サポートにお問い合わせください。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "문제가 지속되면 고객 지원팀에 문의해 주세요." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Se isso continuar acontecendo, entre em contato com o suporte." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "如果这种情况持续发生，请联系支持人员。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "如果問題持續發生，請聯繫支援人員。" } }
       }
     },
     "Invalid Request" : {
       "comment" : "Error title shown when the app cannot process the user's request due to invalid input or parameters.",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "طلب غير صالح"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ungültige Anfrage"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invalid Request"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invalid Request"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Solicitud no válida"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Requête invalide"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अमान्य अनुरोध"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Richiesta non valida"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無効なリクエスト"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "유효하지 않은 요청"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Solicitação Inválida"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无效请求"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無效請求"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "طلب غير صالح" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Ungültige Anfrage" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Invalid Request" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Invalid Request" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Solicitud no válida" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Requête invalide" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "अमान्य अनुरोध" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Richiesta non valida" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "無効なリクエスト" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "유효하지 않은 요청" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Solicitação Inválida" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "无效请求" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "無效請求" } }
       }
     },
     "Message" : {
       "comment" : "Label for the \"Message\" text field in the form.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "الرسالة"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nachricht"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Message"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Message"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mensaje"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Message"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "संदेश"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Messaggio"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "メッセージ"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메시지"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mensagem"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "留言"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "留言"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الرسالة" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Nachricht" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Message" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Message" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Mensaje" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Message" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "संदेश" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Messaggio" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "メッセージ" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "메시지" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Mensagem" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "留言" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "留言" } }
+      }
+    },
+    "Message is required." : {
+      "comment" : "Default validation error message for the \"Message\" form field when it is left empty.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الرسالة مطلوبة." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Nachricht ist erforderlich." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Message is required." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Message is required." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El mensaje es obligatorio." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Le message est requis." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "संदेश आवश्यक है।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Il messaggio è richiesto." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "メッセージは必須です。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "메시지는 필수입니다." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "A mensagem é obrigatória." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "留言是必填项。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "留言為必填。" } }
       }
     },
     "Message must be under %lld characters." : {
       "comment" : "An error message that explains why a message is invalid. The argument is the configured character limit.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يجب أن تكون الرسالة أقل من %lld حرفاً."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Die Nachricht muss weniger als %lld Zeichen enthalten."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Message must be under %lld characters."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Message must be under %lld characters."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El mensaje debe tener menos de %lld caracteres."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le message doit comporter moins de %lld caractères."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "संदेश %lld वर्णों से कम होना चाहिए।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il messaggio deve contenere meno di %lld caratteri."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "メッセージは %lld 文字以内で入力してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메시지는 %lld자 미만이어야 합니다."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A mensagem deve ter menos de %lld caracteres."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "消息必须少于 %lld 个字符。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "留言必須少於 %lld 個字元。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يجب أن تكون الرسالة أقل من %lld حرفاً." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Die Nachricht muss weniger als %lld Zeichen enthalten." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Message must be under %lld characters." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Message must be under %lld characters." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El mensaje debe tener menos de %lld caracteres." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Le message doit comporter moins de %lld caractères." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "संदेश %lld वर्णों से कम होना चाहिए।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Il messaggio deve contenere meno di %lld caratteri." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "メッセージは %lld 文字以内で入力してください。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "메시지는 %lld자 미만이어야 합니다." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "A mensagem deve ter menos de %lld caracteres." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "消息必须少于 %lld 个字符。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "留言必須少於 %lld 個字元。" } }
       }
     },
     "Mobile data is turned off or restricted." : {
       "comment" : "Error shown when mobile data usage is not permitted",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "بيانات الهاتف مغلقة أو مقيدة."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mobile Daten sind ausgeschaltet oder eingeschränkt."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mobile data is turned off or restricted."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mobile data is turned off or restricted."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Los datos móviles están desactivados o restringidos."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Les données mobiles sont désactivées ou restreintes."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "मोबाइल डेटा बंद है या प्रतिबंधित है।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "I dati mobili sono disattivati o limitati."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "モバイルデータ通信がオフか、制限されています。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "모바일 데이터가 꺼져 있거나 제한되었습니다."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Os dados móveis estão desativados ou restritos."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "移动数据已关闭或受限。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "行動數據已關閉或受限。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "بيانات الهاتف مغلقة أو مقيدة." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Mobile Daten sind ausgeschaltet oder eingeschränkt." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Mobile data is turned off or restricted." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Mobile data is turned off or restricted." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Los datos móviles están desactivados o restringidos." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Les données mobiles sont désactivées ou restreintes." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "मोबाइल डेटा बंद है या प्रतिबंधित है।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "I dati mobili sono disattivati o limitati." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "モバイルデータ通信がオフか、制限されています。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "모바일 데이터가 꺼져 있거나 제한되었습니다." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Os datos móveis estão desativados ou restritos." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "移动数据已关闭或受限。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "行動數據已關閉 or 受限。" } }
       }
     },
     "Network Error" : {
       "comment" : "Error title shown when there is no internet connection or the network request cannot be completed.",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "خطأ في الشبكة"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Netzwerkfehler"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Network Error"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Network Error"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error de red"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erreur réseau"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "नेटवर्क त्रुटि"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Errore di rete"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ネットワークエラー"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "네트워크 오류"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erro de Rede"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "网络错误"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "網路錯誤"
-          }
-        }
-      }
-    },
-    "Please provide a message." : {
-      "comment" : "Validation error message for the \"message\" form field.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يرجى كتابة رسالة."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bitte geben Sie eine Nachricht ein."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please provide a message."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please provide a message."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, escribe un mensaje."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veuillez fournir un message."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कृपया एक संदेश प्रदान करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Inserisci un messaggio."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "メッセージを入力してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "메시지를 입력해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Forneça uma mensagem."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请提供一条信息。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請提供留言。"
-          }
-        }
-      }
-    },
-    "Please provide a title." : {
-      "comment" : "Default localized validation error message for the \"Title\" field.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يرجى تقديم عنوان."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bitte geben Sie einen Titel an."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please provide a title."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please provide a title."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, proporciona un título."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veuillez fournir un titre."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कृपया एक शीर्षक प्रदान करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Inserisci un titolo."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タイトルを入力してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "제목을 입력해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Forneça um título."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请输入标题。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請提供標題。"
-          }
-        }
-      }
-    },
-    "Please provide a valid email address." : {
-      "comment" : "Default localized validation error message for the \"Contact Email\" field.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يرجى تقديم بريد إلكتروني صحيح."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bitte geben Sie eine gültige E-Mail-Adresse ein."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please provide a valid email address."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please provide a valid email address."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, proporciona una dirección de correo electrónico válida."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veuillez fournir une adresse e-mail valide."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कृपया एक मान्य ईमेल पता प्रदान करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Inserisci un indirizzo email valido."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "有効なメールアドレスを入力してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "유효한 이메일 주소를 입력해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Forneça um endereço de e-mail válido."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请提供有效的电子邮件地址。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請提供有效的電子郵件地址。"
-          }
-        }
-      }
-    },
-    "Please provide your name." : {
-      "comment" : "Text to be displayed as an error message when the user does not provide a contact name.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يرجى تقديم اسمك."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bitte geben Sie Ihren Namen an."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please provide your name."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please provide your name."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, proporciona tu nombre."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veuillez fournir votre nom."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कृपया अपना नाम प्रदान करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Inserisci il tuo nome."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "お名前を入力してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이름을 입력해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Forneça seu nome."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请提供您的姓名。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請提供您的姓名。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "خطأ في الشبكة" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Netzwerkfehler" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Network Error" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Network Error" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Error de red" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Erreur réseau" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "नेटवर्क त्रुटि" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Errore di rete" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ネットワークエラー" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "네트워크 오류" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Erro de Rede" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "网络错误" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "網路錯誤" } }
       }
     },
     "Processing response…" : {
       "comment" : "Description of the current progress state when the form is processing the server's response.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "جاري معالجة الاستجابة…"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Antwort wird verarbeitet…"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Processing response…"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Processing response…"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Procesando respuesta…"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Traitement de la réponse…"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "प्रतिक्रिया संसाधित की जा रही है…"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elaborazione della risposta…"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "応答を処理中…"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "응답 처리 중…"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Processando resposta…"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在处理响应…"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在處理回應…"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "جاري معالجة الاستجابة…" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Antwort wird verarbeitet…" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Processing response…" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Processing response…" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Procesando respuesta…" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Traitement de la réponse…" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "प्रतिक्रिया संसाधित की जा रही है…" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Elaborazione della risposta…" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "応答を処理中…" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "응답 처리 중…" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Processando resposta…" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "正在处理响应…" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "正在處理回應…" } }
       }
     },
     "Report a bug" : {
       "comment" : "User-facing label for the \"Report a bug\" form kind.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "الإبلاغ عن خطأ"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fehler melden"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Report a bug"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Report a bug"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Informar de un error"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Signaler un bug"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "बग की रिपोर्ट करें"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Segnala un bug"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "バグを報告"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "버그 신고"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Relatar um erro"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "报告错误"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "報告錯誤"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الإبلاغ عن خطأ" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Fehler melden" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Report a bug" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Report a bug" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Informar de un error" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Signaler un bug" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "बग की रिपोर्ट करें" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Segnala un bug" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "バグを報告" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "버그 신고" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Relatar um erro" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "报告错误" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "報告錯誤" } }
       }
     },
     "Request a feature" : {
       "comment" : "Localised string resource describing a form type for requesting a new feature.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "طلب ميزة"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Funktion anfordern"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Request a feature"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Request a feature"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Solicitar una función"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Demander une fonctionnalité"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "फ़ीचर का अनुरोध करें"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Richiedi una funzionalità"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "新機能をリクエスト"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "기능 제안"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Solicitar um recurso"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请求新功能"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請求新功能"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "طلب ميزة" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Funktion anfordern" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Request a feature" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Request a feature" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Solicitar una función" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Demander une fonctionnalité" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "फ़ीचर का अनुरोध करें" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Richiedi una funzionalità" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "新機能をリクエスト" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "기능 제안" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Solicitar um recurso" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "请求新功能" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "請求新功能" } }
       }
     },
     "Send feedback" : {
       "comment" : "Localized label for a feedback form.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "إرسال الملاحظات"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Feedback senden"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Send feedback"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Send feedback"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enviar comentarios"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Envoyer des commentaires"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "प्रतिक्रिया भेजें"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invia feedback"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "フィードバックを送信"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "피드백 보내기"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enviar feedback"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "发送反馈"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "傳送意見反應"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إرسال الملاحظات" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Feedback senden" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Send feedback" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Send feedback" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Enviar comentarios" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Envoyer des commentaires" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "प्रतिक्रिया भेजें" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Invia feedback" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "フィードバックを送信" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "피드백 보내기" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Enviar feedback" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "发送反馈" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "傳送意見反應" } }
       }
     },
     "Server Error" : {
       "comment" : "Error title shown when the server returns an unexpected or invalid response.",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "خطأ في الخادم"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Serverfehler"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Server Error"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Server Error"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Error del servidor"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erreur du serveur"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सर्वर त्रुटि"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Errore del server"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サーバーエラー"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "서버 오류"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erro de Servidor"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "服务器错误"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "伺服器錯誤"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "خطأ في الخادم" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Serverfehler" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Server Error" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Server Error" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Error del servidor" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Erreur du serveur" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "सर्वर त्रुटि" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Errore del server" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "サーバーエラー" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "서버 오류" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Erro de Servidor" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "服务器错误" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "伺服器錯誤" } }
       }
     },
     "Something went wrong on our end. Please try again later." : {
       "comment" : "Detailed error message shown when the server encounters an internal problem or returns an unexpected response.",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "حدث خطأ من جانبنا. يرجى المحاولة مرة أخرى لاحقاً."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Etwas ist schiefgelaufen. Bitte versuchen Sie es später erneut."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Something went wrong on our end. Please try again later."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Something went wrong on our end. Please try again later."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Algo salió mal de nuestro lado. Inténtalo de nuevo más tarde."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un problème est survenu de notre côté. Veuillez réessayer plus tard."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हमारी ओर से कुछ गलत हो गया। कृपया बाद में पुन: प्रयास करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si è verificato un problema da parte nostra. Riprova più tardi."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "システムエラーが発生しました。しばらくしてからもう一度お試しください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "서버에 문제가 발생했습니다. 잠시 후 다시 시도해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Algo deu errado do nosso lado. Tente novamente mais tarde."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我们这边出了一些问题。请稍后再试。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我們這邊發生了一些問題。請稍後再試。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حدث خطأ من جانبنا. يرجى المحاولة مرة أخرى لاحقاً." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Etwas ist schiefgelaufen. Bitte versuchen Sie es später erneut." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Something went wrong on our end. Please try again later." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Something went wrong on our end. Please try again later." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Algo salió mal de nuestro lado. Inténtalo de nuevo más tarde." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Un problème est survenu de notre côté. Veuillez réessayer plus tard." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "हमारी ओर से कुछ गलत हो गया। कृपया बाद में पुन: प्रयास करें।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Si è verificato un problema da parte nostra. Riprova più tardi." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "システムエラーが発生しました。しばらくしてからもう一度お試しください。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "서버에 문제가 발생했습니다. 잠시 후 다시 시도해 주세요." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Algo deu errado do nosso lado. Tente novamente mais tarde." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "我们这边出了一些问题。请稍后再试。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "我們這邊發生了一些問題。請稍後再試。" } }
       }
     },
     "Submitted" : {
       "comment" : "Text that appears when a user successfully submits a form.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تم الإرسال"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Übermittelt"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Submitted"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Submitted"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enviado"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Envoyé"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सबमिट किया गया"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Inviato"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "送信完了"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "제출됨"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enviado"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已提交"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已提交"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تم الإرسال" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Übermittelt" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Submitted" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Submitted" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Enviado" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Envoyé" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "सबमिट किया गया" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Inviato" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "送信完了" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "제출됨" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Enviado" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "已提交" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "已提交" } }
       }
     },
     "Submitting…" : {
       "comment" : "Text displayed in the UI while a form is being submitted.",
       "isCommentAutoGenerated" : true,
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "جاري الإرسال…"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wird übermittelt…"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Submitting…"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Submitting…"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enviando…"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Envoi en cours…"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सबमिट किया जा रहा है…"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invio in corso…"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "送信中…"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "제출 중…"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enviando…"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在提交…"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在提交…"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "جاري الإرسال…" } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Wird übermittelt…" } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "Submitting…" } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "Submitting…" } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Enviando…" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Envoi en cours…" } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "सबमिट किया जा रहा है…" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Invio in corso…" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "送信中…" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "제출 중…" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Enviando…" } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "正在提交…" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "正在提交…" } }
       }
     },
     "The connection was lost. Please check your internet and try again." : {
       "comment" : "Error shown when the network connection drops",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "فقد الاتصال. يرجى التحقق من الإنترنت والمحاولة مرة أخرى."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Die Verbindung wurde unterbrochen. Bitte prüfen Sie Ihr Internet und versuchen Sie es erneut."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The connection was lost. Please check your internet and try again."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The connection was lost. Please check your internet and try again."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se perdió la conexión. Comprueba tu conexión a Internet e inténtalo de nuevo."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La connexion a été perdue. Veuillez vérifier votre connexion Internet et réessayer."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कनेक्शन टूट गया। कृपया अपना इंटरनेट जांचें और पुन: प्रयास करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connessione interrotta. Controlla la tua connessione Internet e riprova."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "接続が切れました。インターネット接続を確認して、もう一度やり直してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "연결이 끊겼습니다. 인터넷 상태를 확인하고 다시 시도해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A conexão foi perdida. Verifique sua internet e tente novamente."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "连接已断开。请检查您的互联网并重试。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "連線已中斷。請檢查您的網路並重試。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "فقد الاتصال. يرجى التحقق من الإنترنت والمحاولة مرة أخرى." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Die Verbindung wurde unterbrochen. Bitte prüfen Sie Ihr Internet und versuchen Sie es erneut." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "The connection was lost. Please check your internet and try again." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "The connection was lost. Please check your internet and try again." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "Se perdió la conexión. Comprueba tu conexión a Internet e inténtalo de nuevo." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "La connexion a été perdue. Veuillez vérifier votre connexion Internet et réessayer." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "कनेक्शन टूट गया। कृपया अपना इंटरनेट जांचें और पुन: प्रयास करें।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Connessione interrotta. Controlla la tua connessione Internet e riprova." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "接続が切れました。インターネット接続を確認して、もう一度やり直してください。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "연결이 끊겼습니다. 인터넷 상태를 확인하고 다시 시도해 주세요." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "A conexão foi perdida. Verifique sua internet e tente novamente." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "连接已断开。请检查您的互联网并重试。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "連線已中斷。請檢查您的網路並重試。" } }
       }
     },
     "The link appears to be invalid." : {
       "comment" : "Error shown when a URL is malformed",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يبدو أن الرابط غير صالح."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Der Link scheint ungültig zu sein."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The link appears to be invalid."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The link appears to be invalid."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El enlace parece no ser válido."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le lien semble être invalide."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "लिंक अमान्य प्रतीत होता है।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il link sembra non essere valido."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "リンクが無効なようです。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "링크가 유효하지 않은 것 같습니다."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O link parece ser inválido."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "该链接似乎无效。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "該連結似乎無效。"
-          }
-        }
-      }
-    },
-    "The request timed out. Please try again." : {
-      "comment" : "Error shown when a network request times out",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "انتهت مهلة الطلب. يرجى المحاولة مرة أخرى."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zeitüberschreitung der Anforderung. Bitte versuchen Sie es erneut."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The request timed out. Please try again."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The request timed out. Please try again."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La solicitud agotó el tiempo de espera. Inténtalo de nuevo."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La requête a expiré. Veuillez réessayer."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अनुरोध का समय समाप्त हो गया। कृपया पुन: प्रयास करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La richiesta è scaduta. Riprova."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "リクエストがタイムアウトしました。もう一度やり直してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "요청 시간이 초과되었습니다. 다시 시도해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A solicitação expirou. Tente novamente."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请求超时。请重试。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請求超時。請重試。"
-          }
-        }
-      }
-    },
-    "The request was invalid. Please check the form and try again." : {
-      "comment" : "Detailed error message shown when the user's request cannot be processed due to invalid input or parameters.",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "الطلب غير صالح. يرجى التحقق من النموذج والمحاولة مرة أخرى."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Die Anfrage war ungültig. Bitte überprüfen Sie das Formular und versuchen Sie es erneut."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The request was invalid. Please check the form and try again."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The request was invalid. Please check the form and try again."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La solicitud no fue válida. Por favor, comprueba el formulario e inténtalo de nuevo."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La requête était invalide. Veuillez vérifier le formulaire et réessayer."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अनुरोध अमान्य था। कृपया फ़ॉर्म जांचें और पुन: प्रयास करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La richiesta non era valida. Controlla il modulo e riprova."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "リクエストが無効です。入力内容を確認して、もう一度やり直してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "요청이 유효하지 않습니다. 양식을 확인하고 다시 시도해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A solicitação era inválida. Verifique o formulário e tente novamente."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请求无效。请检查表单并重试。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請求無效。請檢查表單並重試。"
-          }
-        }
-      }
-    },
-    "The server returned an unexpected response (code %lld). Please try again later." : {
-      "comment" : "Detailed error message shown when the server returns an unrecognised HTTP status code.",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "أرجع الخادم استجابة غير متوقعة (رمز %lld). يرجى المحاولة مرة أخرى لاحقاً."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Der Server hat eine unerwartete Antwort gesendet (Code %lld). Bitte versuchen Sie es später erneut."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server returned an unexpected response (code %lld). Please try again later."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server returned an unexpected response (code %lld). Please try again later."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El servidor devolvió una respuesta inesperada (código %lld). Inténtalo de nuevo más tarde."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le serveur a renvoyé une réponse inattendue (code %lld). Veuillez réessayer plus tard."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सर्वर ने एक अनपेक्षित प्रतिक्रिया दी (कोड %lld)। कृपया बाद में पुन: प्रयास करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il server ha restituito una risposta imprevista (codice %lld). Riprova più tardi."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サーバーから予期しない応答（コード %lld）が返されました。しばらくしてからもう一度お試しください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "서버에서 예기치 않은 응답(%lld)을 반환했습니다. 잠시 후 다시 시도해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O servidor retornou uma resposta inesperada (código %lld). Tente novamente mais tarde."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "服务器返回意外响应（代码 %lld）。请稍后再试。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "伺服器傳回意外回應（代碼 %lld）。請稍後再試。"
-          }
-        }
-      }
-    },
-    "The server returned an unexpected response. Please try again later." : {
-      "comment" : "Error shown when the server response is invalid",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "أرجع الخادم استجابة غير متوقعة. يرجى المحاولة مرة أخرى لاحقاً."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Der Server hat eine unerwartete Antwort gesendet. Bitte versuchen Sie es später erneut."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server returned an unexpected response. Please try again later."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server returned an unexpected response. Please try again later."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El servidor devolvió una respuesta inesperada. Inténtalo de nuevo más tarde."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le serveur a renvoyé une réponse inattendue. Veuillez réessayer plus tard."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सर्वर ने एक अनपेक्षित प्रतिक्रिया दी। कृपया बाद में पुन: प्रयास करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il server ha restituito una respuesta imprevista. Riprova più tardi."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サーバーから予期しない応答が返されました。しばらくしてからもう一度お試しください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "서버에서 예기치 않은 응답을 반환했습니다. 잠시 후 다시 시도해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O servidor retornou uma resposta inesperada. Tente novamente mais tarde."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "服务器返回意外响应。请稍后再试。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "伺服器傳回意外回應。請稍後再試。"
-          }
-        }
-      }
-    },
-    "Title" : {
-      "comment" : "A user-facing label for a field that asks for the user's title.",
-      "isCommentAutoGenerated" : true,
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "العنوان"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Titel"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Title"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Title"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Título"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Titre"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "शीर्षक"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Titolo"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タイトル"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "제목"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Título"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "标题"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "標題"
-          }
-        }
-      }
-    },
-    "Unexpected Response" : {
-      "comment" : "Error title shown when the server returns an unrecognised status code.",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "استجابة غير متوقعة"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unerwartete Antwort"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unexpected Response"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unexpected Response"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Respuesta inesperada"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Réponse inattendue"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अनपेक्षित प्रतिक्रिया"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Risposta imprevista"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "予期しない応答"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "예기치 않은 응답"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Resposta Inesperada"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "意外响应"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "意外回應"
-          }
-        }
-      }
-    },
-    "We couldn't connect to the server. It might be temporarily unavailable." : {
-      "comment" : "Error shown when a connection to the host fails",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تعذر الاتصال بالخادم. قد يكون غير متاح مؤقتاً."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verbindung zum Server fehlgeschlagen. Er ist möglicherweise vorübergehend nicht erreichbar."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We couldn't connect to the server. It might be temporarily unavailable."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We couldn't connect to the server. It might be temporarily unavailable."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No pudimos conectarnos al servidor. Podría estar temporalmente no disponible."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nous n'avons pas pu nous connecter au serveur. Il est peut-être temporairement indisponible."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हम सर्वर से कनेक्ट नहीं हो सके। यह अस्थायी रूप से अनुपलब्ध हो सकता है।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossibile connettersi al server. Potrebbe essere temporaneamente non disponibile."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サーバーに接続できませんでした。一時的に利用できない可能性があります。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "서버에 연결할 수 없습니다. 일시적으로 사용이 불가능할 수 있습니다."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Não conseguimos nos conectar ao servidor. Ele pode estar temporariamente indisponível."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我们无法连接到服务器。它可能暂时不可用。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我們無法連線至伺服器。它可能暫時無法使用。"
-          }
-        }
-      }
-    },
-    "We couldn't establish a secure connection." : {
-      "comment" : "Error shown when a secure network connection fails",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تعذر إنشاء اتصال آمن."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Es konnte keine sichere Verbindung hergestellt werden."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We couldn't establish a secure connection."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We couldn't establish a secure connection."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No pudimos establecer una conexión segura."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nous n'avons pas pu établir une connexion sécurisée."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हम एक सुरक्षित कनेक्शन स्थापित नहीं कर सके।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossibile stabilire una connessione sicura."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "セキュアな接続を確立できませんでした。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "보안 연결을 설정할 수 없습니다."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Não conseguimos estabelecer uma conexão segura."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我们无法建立安全连接。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我們無法建立安全連線。"
-          }
-        }
-      }
-    },
-    "We couldn't find the server. The address may be incorrect." : {
-      "comment" : "Error shown when the host cannot be resolved",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تعذر العثور على الخادم. قد يكون العنوان غير صحيح."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Server nicht gefunden. Die Adresse ist möglicherweise falsch."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We couldn't find the server. The address may be incorrect."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We couldn't find the server. The address may be incorrect."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No pudimos encontrar el servidor. La dirección puede ser incorrecta."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le serveur est introuvable. L'adresse est peut-être incorrecte."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हमें सर्वर नहीं मिला। पता गलत हो सकता है।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossibile trovare il server. L'indirizzo potrebbe essere errato."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サーバーが見つかりませんでした。アドレスが正しくない可能性があります。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "서버를 찾을 수 없습니다. 주소가 올바르지 않을 수 있습니다."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Não conseguimos encontrar o servidor. O endereço pode estar incorreto."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我们找不到服务器。地址可能不正确。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我們找不到伺服器。位址可能不正確。"
-          }
-        }
-      }
-    },
-    "We couldn't resolve the server address. Please check your connection." : {
-      "comment" : "Error shown when DNS lookup fails",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تعذر تحليل عنوان الخادم. يرجى التحقق من اتصالك."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Serveradresse konnte nicht aufgelöst werden. Bitte prüfen Sie Ihre Verbindung."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We couldn't resolve the server address. Please check your connection."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We couldn't resolve the server address. Please check your connection."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No pudimos resolver la dirección del servidor. Comprueba tu conexión."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossible de résoudre l'adresse du serveur. Veuillez vérifier votre connexion."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हम सर्वर पते को हल नहीं कर सके। कृपया अपना कनेक्शन जांचें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossibile risolvere l'indirizzo del server. Controlla la tua connessione."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サーバーアドレスを解決できませんでした。ネットワーク接続を確認してください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "서버 주소를 확인할 수 없습니다. 연결 상태를 확인해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Não conseguimos resolver o endereço do servidor. Verifique sua conexão."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我们无法解析服务器地址。请检查您的连接。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我們無法解析伺服器位址。請檢查您的連線。"
-          }
-        }
-      }
-    },
-    "You're not authorised to perform this action. Please log in and try again." : {
-      "comment" : "Detailed error message shown when the user attempts an action that requires authentication or higher privileges."
-    },
-    "You're not authorized to perform this action. Please log in and try again." : {
-      "comment" : "Detailed error message shown when the user attempts an action that requires authentication or higher privileges.",
-      "extractionState" : "stale",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ليس لديك صلاحية للقيام بهذا الإجراء. يرجى تسجيل الدخول والمحاولة مرة أخرى."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sie sind nicht berechtigt, diese Aktion auszuführen. Bitte melden Sie sich an und versuchen Sie es erneut."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You're not authorised to perform this action. Please log in and try again."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You're not authorised to perform this action. Please log in and try again."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No estás autorizado para realizar esta acción. Inicia sesión e inténtalo de nuevo."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous n'êtes pas autorisé à effectuer cette action. Veuillez vous connecter et réessayer."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "आप इस क्रिया को करने के लिए अधिकृत नहीं हैं। कृपया लॉग इन करें और पुन: प्रयास करें।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Non sei autorizzato a eseguire questa azione. Accedi e riprova."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "この操作を実行する権限がありません。ログインしてもう一度お試しください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이 작업을 수행할 권한이 없습니다. 로그인 후 다시 시도해 주세요."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Você não tem autorização para realizar esta ação. Faça login e tente novamente."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您未获得执行此操作的授权。请登录并重试。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您未獲得執行此操作的授權。請登入並重試。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يبدو أن الرابط غير صالح." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Der Link scheint ungültig zu sein." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "The link appears to be invalid." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "The link appears to be invalid." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "El enlace parece no ser válido." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Le lien semble être invalide." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "लिंक अमान्य प्रतीत होता है।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Il link sembra non essere valido." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "リンクが無効なようです。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "링크가 유효하지 않은 것 같습니다." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "O link parece ser inválido." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "链接无效。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "連結無效。" } }
       }
     },
     "You're not connected to the internet." : {
-      "comment" : "Error shown when there is no internet connection",
+      "comment" : "Error shown when the device has no internet access",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "أنت غير متصل بالإنترنت."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sie sind nicht mit dem Internet verbunden."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You're not connected to the internet."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You're not connected to the internet."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No estás conectado a Internet."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous n'êtes pas connecté à Internet."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "आप इंटरनेट से कनेक्ट नहीं हैं।"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Non sei connesso a Internet."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "インターネットに接続されていません。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "인터넷에 연결되어 있지 않습니다."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Você não está conectado à internet."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您未连接到互联网。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您未連線至網際網路。"
-          }
-        }
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أنت غير متصل بالإنترنت." } },
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Sie sind nicht mit dem Internet verbunden." } },
+        "en-AU" : { "stringUnit" : { "state" : "translated", "value" : "You're not connected to the internet." } },
+        "en-GB" : { "stringUnit" : { "state" : "translated", "value" : "You're not connected to the internet." } },
+        "es" : { "stringUnit" : { "state" : "translated", "value" : "No estás conectado a Internet." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Vous n'êtes pas connecté à Internet." } },
+        "hi" : { "stringUnit" : { "state" : "translated", "value" : "आप इंटरनेट से कनेक्ट नहीं हैं।" } },
+        "it" : { "stringUnit" : { "state" : "translated", "value" : "Non sei connesso a Internet." } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "インターネットに接続されていません。" } },
+        "ko" : { "stringUnit" : { "state" : "translated", "value" : "인터넷에 연결되어 있지 않습니다." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Você não está conectado à internet." } },
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "您未连接到互联网。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "您未連線到網際網路。" } }
       }
     }
   },
-  "version" : "1.1"
+  "version" : "1.0"
 }

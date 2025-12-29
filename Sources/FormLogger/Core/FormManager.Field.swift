@@ -32,13 +32,25 @@ extension FormManager {
         internal var label: String {
             switch self {
                 case .title:
-                    String(localized: "Title", bundle: .module)
+                    String(
+                        localized: "Title",
+                        bundle: .module
+                    )
                 case .message:
-                    String(localized: "Message", bundle: .module)
+                    String(
+                        localized: "Message",
+                        bundle: .module
+                    )
                 case .contactName:
-                    String(localized: "Contact name", bundle: .module)
+                    String(
+                        localized: "Contact name",
+                        bundle: .module
+                    )
                 case .contactEmail:
-                    String(localized: "Contact email", bundle: .module)
+                    String(
+                        localized: "Contact email",
+                        bundle: .module
+                    )
             }
         }
 
@@ -48,13 +60,25 @@ extension FormManager {
         internal var errorMessage: String {
             switch self {
                 case .title:
-                    String(localized: "Please provide a title.", bundle: .module)
+                    String(
+                        localized: "Title is required.",
+                        bundle: .module
+                    )
                 case .message:
-                    String(localized: "Please provide a message.", bundle: .module)
+                    String(
+                        localized: "Message is required.",
+                        bundle: .module
+                    )
                 case .contactName:
-                    String(localized: "Please provide your name.", bundle: .module)
+                    String(
+                        localized: "Contact name is required.",
+                        bundle: .module
+                    )
                 case .contactEmail:
-                    String(localized: "Please provide a valid email address.", bundle: .module)
+                    String(
+                        localized: "Enter a valid email address.",
+                        bundle: .module
+                    )
             }
         }
     }
