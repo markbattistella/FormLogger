@@ -8,12 +8,6 @@ import Foundation
 import Observation
 @_exported import SimpleLogger
 
-/// The resource bundle associated with this module.
-///
-/// Use this bundle to load assets such as localized strings, images, or other resources that are
-/// packaged with the module.
-internal let module: Bundle = .module
-
 /// Manages the state, validation, and submission lifecycle of a user-facing form.
 ///
 /// `FormManager` is responsible for:
