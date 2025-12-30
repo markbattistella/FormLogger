@@ -384,13 +384,15 @@ extension FormManager {
             
             progressState = .idle
         }
-        
+
+        #if DEBUG
         if config.isDryRun {
             debugPrintSubmission(payload: payload, logFileURL: logFileURL)
             progressState = .completed
             return
         }
-        
+        #endif
+
         do {
             progressState = .submitting
             logger.debug("Sending multipart request to API")
