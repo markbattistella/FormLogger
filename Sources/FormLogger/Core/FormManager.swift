@@ -385,13 +385,11 @@ extension FormManager {
             progressState = .idle
         }
 
-        #if DEBUG
         if config.isDryRun {
             debugPrintSubmission(payload: payload, logFileURL: logFileURL)
             progressState = .completed
             return
         }
-        #endif
 
         do {
             progressState = .submitting
@@ -425,7 +423,6 @@ extension FormManager {
         }
     }
     
-    #if DEBUG
     /// Prints the form submission payload and attachments to the console.
     ///
     /// This method is used only in debug builds to inspect the data that would be sent during a
@@ -462,7 +459,6 @@ extension FormManager {
         
         print("================================")
     }
-    #endif
 }
 
 // MARK: - Form Clearing
