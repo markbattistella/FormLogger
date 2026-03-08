@@ -17,8 +17,8 @@ let package = Package(
         .library(name: "FormLogger", targets: ["FormLogger"])
     ],
     dependencies: [
-        .package(url: "https://github.com/markbattistella/SimpleLogger", from: "25.12.0"),
-        .package(url: "https://github.com/markbattistella/PlatformChecker", from: "1.0.0")
+        .package(url: "https://github.com/markbattistella/SimpleLogger", from: "26.0.0"),
+        .package(url: "https://github.com/markbattistella/PlatformChecker", from: "26.0.0")
     ],
     targets: [
         .target(
