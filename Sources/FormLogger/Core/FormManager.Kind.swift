@@ -15,7 +15,7 @@ extension FormManager {
     ///
     /// Each case provides user-facing metadata such as a localized label and an associated SF
     /// Symbols system image.
-    public enum Kind: String, CaseIterable, Identifiable, CustomStringConvertible, Codable {
+    public enum Kind: String, CaseIterable, Identifiable, CustomStringConvertible, CustomDebugStringConvertible, Codable {
 
         /// A submission intended to report a software defect or issue.
         case bug
@@ -28,17 +28,14 @@ extension FormManager {
 
         /// A stable identifier for the form kind.
         ///
-        /// This value is derived from the kind's string description and is suitable for use in
-        /// SwiftUI lists.
-        public var id: String { description }
+        /// This value is derived from the raw value and is suitable for use in SwiftUI lists.
+        public var id: String { rawValue }
 
-        /// A string representation of the form kind.
-        ///
-        /// The description includes the enum type name and raw value to provide clarity when
-        /// logging or debugging.
-        public var description: String {
-            "\(Self.self).\(rawValue)"
-        }
+        /// A human-readable string representation of the form kind.
+        public var description: String { rawValue }
+
+        /// A debug string representation including the full type name.
+        public var debugDescription: String { "\(Self.self).\(rawValue)" }
 
         /// A localized, user-facing label describing the form kind.
         ///

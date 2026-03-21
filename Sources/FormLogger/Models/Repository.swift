@@ -16,7 +16,7 @@ extension Repository {
     /// This type identifies a GitHub repository using an owner username and repository name.
     /// It is intended to be encoded and transmitted as part of a form submission or configuration
     /// payload.
-    public struct Github: Encodable {
+    public struct GitHub: Encodable, Sendable {
 
         /// The GitHub username or organisation that owns the repository.
         public let username: String
@@ -45,24 +45,24 @@ extension Repository {
     public enum Resolver {
 
         /// Uses a single repository for all form types.
-        case single(Github)
+        case single(GitHub)
 
         /// Uses a distinct repository for each form type.
         ///
         /// A repository must be provided for every supported form kind.
-        case multiple([FormManager.Kind: Github])
+        case multiple([FormManager.Kind: GitHub])
 
         /// Uses a shared default repository with optional per-form overrides.
-        case partial(shared: Github, overrides: [FormManager.Kind: Github])
+        case partial(shared: GitHub, overrides: [FormManager.Kind: GitHub])
 
         /// Resolves the GitHub repository for a given form kind.
         ///
         /// - Parameter kind: The form type requiring a repository.
-        /// - Returns: The resolved `Github` repository.
+        /// - Returns: The resolved `GitHub` repository.
         ///
         /// If no repository is configured for the given form kind in the `.multiple` case, this
         /// method triggers a precondition failure.
-        public func getRepository(for kind: FormManager.Kind) -> Github {
+        public func repository(for kind: FormManager.Kind) -> GitHub {
             switch self {
                 case .single(let repository):
                     return repository

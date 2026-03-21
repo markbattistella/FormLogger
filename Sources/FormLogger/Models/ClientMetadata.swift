@@ -12,7 +12,7 @@ import PlatformChecker
 /// This type aggregates identifying information about the app and the operating system it is
 /// running on. It is intended to be encoded and sent with network requests for diagnostics,
 /// analytics, or backend processing.
-internal struct ClientMetadata: Encodable {
+internal struct ClientMetadata: Encodable, Sendable {
 
     /// The app's internal bundle name.
     internal let appName: String

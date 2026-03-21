@@ -1,4 +1,4 @@
-// swift-tools-version: 5.10
+// swift-tools-version: 6.0
 
 import PackageDescription
 
@@ -24,7 +24,10 @@ let package = Package(
         .target(
             name: "FormLogger",
             dependencies: ["SimpleLogger", "PlatformChecker"],
-            resources: [.process("Resources")]
+            resources: [.process("Resources")],
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
         )
     ]
 )

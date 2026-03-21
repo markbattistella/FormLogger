@@ -70,6 +70,14 @@ public final class FormManager {
     /// rendering.
     @ObservationIgnored
     private var config: any FormConfiguration
+
+    /// Runtime metadata merged into submissions via ``mergeMetadata(_:)``.
+    ///
+    /// This dictionary is combined with ``FormConfiguration/customMetadata`` when building the
+    /// submission payload, allowing metadata to be injected after initialisation without mutating
+    /// the configuration object.
+    @ObservationIgnored
+    private var extraMetadata: [String: String] = [:]
     
     /// Manages log collection and lifecycle during form submission.
     ///
@@ -267,9 +275,8 @@ extension FormManager {
     /// - Parameter email: The email address string to validate.
     /// - Returns: `true` if the email matches the expected format; otherwise, `false`.
     private func isValidEmail(_ email: String) -> Bool {
-        let regex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,12}$"
-        return NSPredicate(format: "SELF MATCHES[c] %@", regex)
-            .evaluate(with: email)
+        let regex = /^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,12}$/
+        return email.wholeMatch(of: regex) != nil
     }
 }
 
@@ -296,12 +303,11 @@ extension FormManager {
         switch result {
             case .success(let data):
                 do {
-                    progressState = .exportingLogs
                     let filename = "logs_\(Date.now.formatted(.iso8601))"
-                        .replacingOccurrences(of: ":", with: ".")
-                    
+                        .replacing(":", with: ".")
+
                     let url = FileManager.default.temporaryDirectory
-                        .appendingPathComponent(filename)
+                        .appending(component: filename)
                         .appendingPathExtension(Export.Format.gzip(.log).filenameSuffix)
                     
                     try data.write(to: url, options: .atomic)
@@ -339,8 +345,13 @@ extension FormManager {
     /// - Throws: A `FormResponse` for known submission or network errors, or any unexpected error
     /// encountered during the process.
     public func submit() async throws {
+        guard !isProcessing else {
+            logger.debug("Submit called while already processing – ignoring")
+            return
+        }
+
         let startTime = Date.now
-        
+
         logger.info("Form submission started - type: \(self.kind.rawValue, privacy: .public)")
         
         guard validateFormFields() else {
@@ -349,20 +360,27 @@ extension FormManager {
             return
         }
         
+        let mergedMetadata: [String: String]? = {
+            let combined = (config.customMetadata ?? [:]).merging(extraMetadata) { _, new in new }
+            return combined.isEmpty ? nil : combined
+        }()
+
         let payload = FormPayload(
             title: title,
             message: message,
             contactName: allowContact ? contactName : nil,
             contactEmail: allowContact ? contactEmail : nil,
-            repository: config.repository.getRepository(for: kind),
+            repository: config.repository.repository(for: kind),
             label: kind.rawValue,
-            customMetadata: config.customMetadata
+            customMetadata: mergedMetadata
         )
         logger.debug("Payload created - contact info included: \(self.allowContact, privacy: .public)")
         
-        var logFileURL: URL? = nil
-        
+        var logFileURL: URL?
+
         if shouldCollectLogs {
+            progressState = .exportingLogs
+
             do {
                 logFileURL = try await exportLogsToTemporaryFile()
             } catch {
@@ -386,7 +404,11 @@ extension FormManager {
         }
 
         if config.isDryRun {
-            debugPrintSubmission(payload: payload, logFileURL: logFileURL)
+            debugPrintSubmission(
+                payload: payload,
+                mergedMetadata: mergedMetadata,
+                logFileURL: logFileURL
+            )
             progressState = .completed
             return
         }
@@ -406,7 +428,7 @@ extension FormManager {
             logger.info("Form submission sent successfully in \(submissionDuration.formatted(.number.precision(.fractionLength(2))))s")
             
             progressState = .processingResponse
-            await handleSuccessfulSubmissionUX()
+            try await handleSuccessfulSubmissionUX()
             
         } catch let error as FormResponse {
             logger.error("Form submission failed: \(error.errorTitle, privacy: .public)")
@@ -433,30 +455,31 @@ extension FormManager {
     ///   - logFileURL: The URL of the exported log file, if one was generated.
     private func debugPrintSubmission(
         payload: FormPayload,
+        mergedMetadata: [String: String]?,
         logFileURL: URL?
     ) {
         print("=== FORM SUBMISSION (DRY RUN) ===")
         print("Kind:", kind.rawValue)
         print("Title:", payload.title)
         print("Message:", payload.message)
-        
+
         if let name = payload.contactName {
             print("Contact Name:", name)
         }
-        
+
         if let email = payload.contactEmail {
             print("Contact Email:", email)
         }
-        
-        print("Repository:", config.repository.getRepository(for: kind))
-        print("Custom Metadata:", config.customMetadata ?? [:])
-        
+
+        print("Repository:", "\(payload.repository.username)/\(payload.repository.repository)")
+        print("Custom Metadata:", mergedMetadata ?? [:])
+
         if let logFileURL {
-            print("Logs attached at:", logFileURL.path)
+            print("Logs attached at:", logFileURL.path(percentEncoded: false))
         } else {
             print("No logs attached")
         }
-        
+
         print("================================")
     }
 }
@@ -504,7 +527,10 @@ extension FormManager {
                 
             case 401:
                 throw FormResponse.unauthorized
-                
+
+            case 403:
+                throw FormResponse.forbidden
+
             case 500:
                 throw FormResponse.serverError
                 
@@ -521,34 +547,41 @@ extension FormManager {
     /// - Updates the progress state to reflect countdown and completion
     ///
     /// The delay allows the UI to present a confirmation state before resetting the form contents.
-    private func handleSuccessfulSubmissionUX() async {
+    private func handleSuccessfulSubmissionUX() async throws {
         logger.info("Form submission successful")
-        
+
         if config.shouldClearForm {
-            let totalSeconds = Int(config.clearFormDelay.components.seconds)
-            
-            for secondsRemaining in (1...totalSeconds).reversed() {
-                progressState = .clearingForm(timeRemaining: secondsRemaining)
-                try? await Task.sleep(for: .seconds(1))
+            let components = config.clearFormDelay.components
+            let totalSeconds = Int(components.seconds) + (components.attoseconds > 0 ? 1 : 0)
+
+            if totalSeconds > 0 {
+                for secondsRemaining in (1...totalSeconds).reversed() {
+                    progressState = .clearingForm(timeRemaining: secondsRemaining)
+                    try await Task.sleep(for: .seconds(1))
+                }
             }
-            
+
             clearForm()
         }
-        
+
         progressState = .completed
-        try? await Task.sleep(for: .seconds(1))
+        try await Task.sleep(for: .seconds(1))
     }
 }
 
 // MARK: - Metadata Injection
 
 extension FormManager {
+
+    /// Merges additional metadata into the form submission.
+    ///
+    /// The provided entries are merged into a runtime dictionary that is combined with
+    /// ``FormConfiguration/customMetadata`` when the payload is built. In the event of a key
+    /// conflict, the value supplied here takes precedence.
+    ///
+    /// - Parameter metadata: The key-value pairs to merge.
     public func mergeMetadata(_ metadata: [String: String]) {
-        if config.customMetadata != nil {
-            config.customMetadata?.merge(metadata) { _, dynamic in dynamic }
-        } else {
-            config.customMetadata = metadata
-        }
+        extraMetadata.merge(metadata) { _, new in new }
         logger.debug("Merged \(metadata.count) metadata entries")
     }
 }

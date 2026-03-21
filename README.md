@@ -192,8 +192,8 @@ I've set mine up using:
 - A Cloudflare Worker to receive and forward form data
 - Logs and metadata are submitted as a multipart form
 
-> [!TIP] 
-> I wrote about setting this up for yourself - [part 1](https://markbattistella.com/writings/2025/rethinking-feedback-p1/), [part 2](https://markbattistella.com/writings/2025/rethinking-feedback-p2/), [part 3](https://markbattistella.com/writings/2025/rethinking-feedback-p3/), and [part 4](https://markbattistella.com/writings/2025/rethinking-feedback-p4/) 
+> [!TIP]
+> I wrote about setting this up for yourself - [part 1](https://markbattistella.com/writings/2025/rethinking-feedback-p1/), [part 2](https://markbattistella.com/writings/2025/rethinking-feedback-p2/), [part 3](https://markbattistella.com/writings/2025/rethinking-feedback-p3/), and [part 4](https://markbattistella.com/writings/2025/rethinking-feedback-p4/)
 
 This lets me forward validated SwiftUI form data directly to GitHub as an issue — but you can use any backend that accepts JSON and logs.
 

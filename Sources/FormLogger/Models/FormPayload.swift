@@ -11,7 +11,7 @@ import Foundation
 /// This type encapsulates all information required to submit a form, including user-provided
 /// content, repository context, and automatically collected client metadata. It is intended to
 /// be encoded and sent to a backend service.
-internal struct FormPayload: Encodable {
+internal struct FormPayload: Encodable, Sendable {
 
     /// A unique identifier for the form submission.
     internal let id: String
@@ -29,7 +29,7 @@ internal struct FormPayload: Encodable {
     internal let contactEmail: String?
 
     /// The target GitHub repository associated with the submission.
-    internal let repository: Repository.Github
+    internal let repository: Repository.GitHub
 
     /// A label applied to the submission for categorisation or triage.
     internal let label: String
@@ -55,7 +55,7 @@ internal struct FormPayload: Encodable {
         message: String,
         contactName: String?,
         contactEmail: String?,
-        repository: Repository.Github,
+        repository: Repository.GitHub,
         label: String,
         customMetadata: [String : String]? = nil
     ) {

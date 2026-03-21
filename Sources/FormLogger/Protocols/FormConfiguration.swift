@@ -35,7 +35,10 @@ public protocol FormConfiguration {
     var repository: Repository.Resolver { get }
 
     /// Optional custom metadata to include with each form submission.
-    var customMetadata: [String : String]? { get set }
+    ///
+    /// This property is read-only in the protocol. To merge additional metadata at runtime, use
+    /// ``FormManager/mergeMetadata(_:)``.
+    var customMetadata: [String : String]? { get }
 
     /// A Boolean value indicating whether submissions should be treated as a dry run and not actually sent to the backend.
     var isDryRun: Bool { get }

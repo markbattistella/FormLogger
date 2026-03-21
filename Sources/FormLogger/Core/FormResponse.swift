@@ -20,18 +20,21 @@ extension FormManager {
         /// The request failed due to missing or invalid authorisation.
         case unauthorized
 
+        /// The request was rejected due to insufficient permissions.
+        case forbidden
+
         /// The server encountered an internal error.
         case serverError
 
         /// The server returned an unexpected HTTP status code.
         ///
-        /// - Parameter Int: The unrecognised status code returned by the server.
-        case unexpectedStatus(Int)
+        /// - parameter statusCode: The unrecognised status code returned by the server.
+        case unexpectedStatus(_ statusCode: Int)
 
         /// The request failed due to a network-related error.
         ///
-        /// - Parameter URLError: The underlying network error.
-        case networkError(URLError)
+        /// - parameter error: The underlying network error.
+        case networkError(_ error: URLError)
 
         /// A short, localised title describing the error.
         ///
@@ -51,6 +54,13 @@ extension FormManager {
                         localized: "Access Denied",
                         bundle: .module,
                         comment: "Error title shown when the user is not authorised to perform the requested action or access the resource."
+                    )
+
+                case .forbidden:
+                    return String(
+                        localized: "Permission Denied",
+                        bundle: .module,
+                        comment: "Error title shown when the user does not have the required permissions to perform the action."
                     )
 
                 case .serverError:
@@ -94,6 +104,13 @@ extension FormManager {
                         localized: "You're not authorized to perform this action. Please log in and try again.",
                         bundle: .module,
                         comment: "Detailed error message shown when the user attempts an action that requires authentication or higher privileges."
+                    )
+
+                case .forbidden:
+                    return String(
+                        localized: "You don't have permission to perform this action.",
+                        bundle: .module,
+                        comment: "Detailed error message shown when the user lacks the required permissions for the action."
                     )
 
                 case .serverError:

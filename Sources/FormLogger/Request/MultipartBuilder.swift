@@ -38,10 +38,12 @@ internal enum MultipartBuilder {
         logger.debug("Building multipart body file with boundary: \(boundary, privacy: .public)")
 
         let tempURL = FileManager.default.temporaryDirectory
-            .appendingPathComponent("multipart_\(boundary)")
+            .appending(component: "multipart_\(boundary)")
             .appendingPathExtension("body")
 
-        guard FileManager.default.createFile(atPath: tempURL.path, contents: nil) else {
+        do {
+            try Data().write(to: tempURL)
+        } catch {
             logger.error("Failed to create temporary multipart file")
             throw CocoaError(.fileWriteUnknown)
         }

@@ -8,9 +8,7 @@ import Foundation
 
 /// A utility for sending multipart/form-data HTTP requests.
 ///
-/// This type coordinates multipart body construction and network upload for form submissions,
-/// ensuring work is performed on the main actor where required.
-@MainActor
+/// This type coordinates multipart body construction and network upload for form submissions.
 internal enum MultipartRequest {
 
     /// Logger used for multipart request lifecycle events.
@@ -23,6 +21,10 @@ internal enum MultipartRequest {
     /// - Uploads the file using `URLSession`
     /// - Cleans up temporary resources after completion
     ///
+    /// This function is marked `@concurrent` to ensure it always runs on the cooperative thread
+    /// pool regardless of the caller's actor context, preventing synchronous body-building work
+    /// from executing on the main actor.
+    ///
     /// - Parameters:
     ///   - url: The endpoint to which the request is sent.
     ///   - payload: The form payload to include in the request body.
@@ -30,6 +32,7 @@ internal enum MultipartRequest {
     /// - Returns: A tuple containing the response data and the HTTP response.
     /// - Throws: A `URLError` or other error if request construction, upload, or response
     /// validation fails.
+    @concurrent
     internal static func send(
         to url: URL,
         payload: FormPayload,
