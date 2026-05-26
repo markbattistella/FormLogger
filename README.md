@@ -11,13 +11,13 @@
 
 </div>
 
-`FormLogger` is a drop-in SwiftUI-compatible manager for logging bugs, feature requests, and feedback - with flexible support for custom UI and backends. You can roll your own interface while leveraging the powerful `FormManager`. It's designed to integrate with lightweight backends (like a Cloudflare Worker) that push issues to GitHub via their API.
+`FormLogger` is a drop-in SwiftUI-compatible manager for logging bugs, feature requests, and feedback — with flexible support for custom UI and backends. You power the interface; `FormManager` handles validation, log collection, and async submission to a lightweight backend (such as a Cloudflare Worker that creates GitHub issues).
 
 ## Features
 
-- **Input validation:** Ensures title, description, and (optional) contact details are properly filled and formatted.
-- **Customisable view model:** Use the underlying `FormManager` to power your own UI with full control over behaviour.
-- **Repository routing:** Supports single, multiple, or selectively overridden repositories based on form type.
+- **Input validation:** Ensures title, message, and optional contact details are properly filled and formatted.
+- **Customisable view model:** Use `FormManager` to power your own UI with full control over behaviour.
+- **Repository routing:** Supports single, multiple, or selectively overridden repositories based on form kind.
 - **Log attachment:** Automatically collects and submits log data alongside user input for better context.
 - **Async submission:** Handles network requests using `async`/`await`, with detailed progress and error state handling.
 
@@ -27,179 +27,198 @@ Add `FormLogger` to your Swift project using Swift Package Manager.
 
 ```swift
 dependencies: [
-  .package(url: "https://github.com/markbattistella/FormLogger", from: "1.0.0")
+  .package(url: "https://github.com/markbattistella/FormLogger", from: "26.3.22")
 ]
 ```
 
-Alternatively, you can add `FormLogger` using Xcode by navigating to `File > Add Packages` and entering the package repository URL.
+### Requirements
+
+- Swift 6.0+
 
 ## Usage
 
-With full control you can leverage the `FormManager` to power your own interface:
+### FormManager
 
-### Capabilities
+`FormManager` is a `@MainActor @Observable` class. Create one instance per form view and inject it as needed.
 
-- `userInput`: Contains title, description, and optional contact info.
-- `formType`: Enum of `.bug`, `.feature`, or `.feedback`.
-- `isFormValid`: Boolean indicating if user input is valid.
-- `isProcessing`: Boolean showing if submission is ongoing.
-- `submit()`: Async method that validates, collects logs, and sends to backend.
-- `currentProgress`: Double value from 0–1 for progress.
-- `currentProgressLabel`: String description of current progress state.
+```swift
+@State private var form = FormManager(config: MyFormConfig())
+```
+
+#### User-editable fields
+
+```swift
+form.title          // String
+form.message        // String
+form.contactName    // String
+form.contactEmail   // String
+form.kind           // FormManager.Kind — .bug, .feature, or .feedback
+form.allowContact   // Bool
+form.shouldCollectLogs // Bool
+```
+
+#### Read-only state
+
+```swift
+form.fieldErrors     // [FormManager.Field: String] — populated after validation
+form.progressState   // FormManager.ProgressState — current submission lifecycle phase
+form.isProcessing    // Bool — true while any operation is in progress
+form.canSubmit       // Bool — true when validated and not processing
+form.isFormValid     // Bool — true after a successful validation pass
+form.messageCharacterLimit // Int — from FormConfiguration
+```
+
+#### Submission
+
+```swift
+do {
+    try await form.submit()
+} catch let error as FormManager.FormResponse {
+    print(error.errorTitle)
+    print(error.errorDescription ?? "")
+} catch {
+    print(error.localizedDescription)
+}
+```
+
+`submit()` returns without throwing when validation fails — check `fieldErrors` or gate the call behind `canSubmit`. It throws a `FormManager.FormResponse` for network and server errors.
+
+#### Metadata injection
+
+Additional key-value pairs can be merged into the submission payload at runtime:
+
+```swift
+form.mergeMetadata(["appVersion": "2.1.0", "locale": Locale.current.identifier])
+```
+
+### Progress state
+
+`FormManager.ProgressState` models each phase of submission and provides UI-friendly metadata:
+
+```swift
+ProgressView(value: form.progressState.progress) // 0.0 to 1.0
+Text(form.progressState.displayMessage)           // e.g. "Submitting…"
+```
+
+States: `.idle`, `.exportingLogs`, `.submitting`, `.processingResponse`, `.clearingForm(timeRemaining:)`, `.completed`.
+
+### Form kinds
+
+`FormManager.Kind` is a `CaseIterable` enum with three cases:
+
+```swift
+Picker("Type", selection: $form.kind) {
+    ForEach(FormManager.Kind.allCases) { kind in
+        Label(kind.label, systemImage: kind.systemImage).tag(kind)
+    }
+}
+```
+
+Cases: `.bug`, `.feature`, `.feedback`. Each provides a localised `.label` and an SF Symbols `.systemImage`.
+
+### Validation errors
+
+After a failed `submit()`, field-specific messages are available in `fieldErrors`:
+
+```swift
+if let error = form.fieldErrors[.title] {
+    Text(error).font(.caption).foregroundStyle(.red)
+}
+```
+
+`FormManager.Field` cases: `.title`, `.message`, `.contactName`, `.contactEmail`.
+
+You can also clear errors manually:
+
+```swift
+form.clearError(for: .title)
+form.clearAllErrors()
+```
 
 ## Configuration
 
-You can customise how form submissions are routed to repositories using the `RepositoryResolver`.
-
-This modular setup ensures you can scale your feedback system as your project grows - from a single inbox to a fully segmented triage workflow.
-
-There are three main strategies depending on your needs:
-
-### Single Repository
-
-Use a single repository for all form types - bugs, features, and feedback. This is a great setup if you're just starting out or want to centralise everything in one place.
+Conform a type to `FormConfiguration` to control submission behaviour:
 
 ```swift
-let singleRepoConfig = PreviewFormConfig(
-  repository: .single(
-    Repository(
-      username: "markbattistella",
-      repository: "feedback-logger"
-    )
-  )
+struct MyFormConfig: FormConfiguration {
+    var apiURL: URL { URL(string: "https://worker.example.com/submit")! }
+    var repository: Repository.Resolver {
+        .single(Repository.GitHub(username: "markbattistella", repository: "feedback"))
+    }
+}
+```
+
+Optional properties have defaults:
+
+| Property | Default |
+| --- | --- |
+| `characterLimit` | `500` |
+| `shouldClearForm` | `true` |
+| `clearFormDelay` | `.seconds(10)` |
+| `customMetadata` | `nil` |
+| `isDryRun` | `false` |
+
+### Repository routing
+
+#### Single repository
+
+All form kinds route to one repository.
+
+```swift
+repository: .single(
+    Repository.GitHub(username: "markbattistella", repository: "feedback")
 )
 ```
 
-In this setup, all issues - regardless of type - are submitted to the same repository. It's simple, clean, and requires minimal setup.
+#### Multiple repositories
 
-### Multiple Repositories
-
-Use different repositories depending on the type of form being submitted. Ideal when you want to separate concerns, visibility, or contributor access.
+A distinct repository per form kind. Every kind must be present or submission will crash at the missing entry.
 
 ```swift
-let multiRepoConfig = PreviewFormConfig(
-  repository: .multiple([
-    .bug: Repository(
-      username: "markbattistella",
-      repository: "bug-tracker"
-    ),
-    .feature: Repository(
-      username: "markbattistella",
-      repository: "feature-requests"
-    ),
-    .feedback: Repository(
-      username: "markbattistella",
-      repository: "feedback-logger"
-    )
-  ])
-)
+repository: .multiple([
+    .bug:      Repository.GitHub(username: "markbattistella", repository: "bug-tracker"),
+    .feature:  Repository.GitHub(username: "markbattistella", repository: "feature-requests"),
+    .feedback: Repository.GitHub(username: "markbattistella", repository: "feedback"),
+])
 ```
 
-This gives you fine-grained control:
+#### Partial override
 
-- Bugs could be logged to a private internal repo.
-- Feedback might go to a public or community-accessible submodule.
-- Feature requests could be tracked openly so others can view and upvote them.
-
-### Partial Override
-
-Start with a shared repository for all form types, but selectively override one or two categories. Great for workflows where most issues can be public, but certain categories (like bugs) need privacy.
+A shared fallback repository with optional per-kind overrides.
 
 ```swift
-let overrideRepoConfig = PreviewFormConfig(
-  repository: .partial(
-    shared: Repository(
-      username: "markbattistella",
-      repository: "feedback-logger"
-    ),
+repository: .partial(
+    shared: Repository.GitHub(username: "markbattistella", repository: "feedback"),
     overrides: [
-      .bug: Repository(
-        username: "markbattistella",
-        repository: "bugs-internal"
-      )
+        .bug: Repository.GitHub(username: "markbattistella", repository: "bugs-internal"),
     ]
-  )
 )
 ```
 
-Perfect when:
+### HTTP response errors
 
-- Feedback and feature requests are sent to a public-facing repo.
-- Bug reports go to a private, locked-down internal repo accessible only to your team.
+`FormManager.FormResponse` conforms to `LocalizedError` and maps server responses to user-facing messages:
 
-## Validation
+| Case | Trigger |
+| --- | --- |
+| `.badRequest` | HTTP 400 |
+| `.unauthorized` | HTTP 401 |
+| `.forbidden` | HTTP 403 |
+| `.serverError` | HTTP 500 |
+| `.unexpectedStatus(Int)` | Any other status code |
+| `.networkError(URLError)` | Network-level failure |
 
-Before submission, `FormManager` checks the user's input for completeness and correctness. If validation fails, it throws a `FormValidationError`.
+Each case provides `.errorTitle` (short headline) and `.errorDescription` (detail string).
 
-```swift
-public struct FormValidationError: Error {
-  public let invalidFields: Set<FormField>
-}
-```
-
-Each invalid field is represented by a `FormField` enum, making it easy to highlight or handle specific errors in your UI.
-
-Validation covers:
-
-- **Title:** Cannot be empty or just whitespace.
-- **Description:** Required, trimmed, and validated.
-- **Contact Info:** Optional, but if enabled, both name and email must be valid.
-  - Email format is checked using a *very* basic regex pattern.
-
-You can access validation state live via:
-
-```swift
-viewModel.isFormValid // Bool
-```
-
-Or if you wish to get the invalid fields for display you can access `fieldErrors`:
-
-```swift
-// example
-if let error = viewModel.fieldErrors[.title] {
-  Text(error)
-    .font(.caption)
-    .foregroundColor(.red)
-}
-```
-
-### HTTP Response Handling
-
-When a form is submitted, the backend response is captured as a `FormResponse`, which conforms to `Error`.
-
-```swift
-public enum FormResponse: Error {
-  case badRequest         // 400
-  case unauthorized       // 401
-  case serverError        // 500
-  case unexpectedError    // any other failure
-  case successMessage     // 200–299 success
-}
-```
-
-## Backend System
-
-While `FormLogger` is backend-agnostic, it's built to work beautifully with lightweight systems.
+## Backend
 
 > [!CAUTION]
-> The log file sent in the multipart form is GZIP-compressed and saved with a `.gz` extension. It must be decompressed on the backend using a GZIP-compatible decompression method.
+> The log file sent in the multipart form is GZIP-compressed with a `.gz` extension. Decompress it on the backend using a GZIP-compatible method.
 
-### What I used
-
-I've set mine up using:
-
-- A GitHub App for API authentication
-- A Cloudflare Worker to receive and forward form data
-- Logs and metadata are submitted as a multipart form
+FormLogger is backend-agnostic. The reference setup uses a GitHub App for API authentication and a Cloudflare Worker to receive and forward the multipart payload to GitHub as an issue.
 
 > [!TIP]
-> I wrote about setting this up for yourself - [part 1](https://markbattistella.com/writings/2025/rethinking-feedback-p1/), [part 2](https://markbattistella.com/writings/2025/rethinking-feedback-p2/), [part 3](https://markbattistella.com/writings/2025/rethinking-feedback-p3/), and [part 4](https://markbattistella.com/writings/2025/rethinking-feedback-p4/)
-
-This lets me forward validated SwiftUI form data directly to GitHub as an issue — but you can use any backend that accepts JSON and logs.
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request for any features, fixes, or improvements.
+> The full setup is documented in a four-part series: [part 1](https://markbattistella.com/writings/2025/rethinking-feedback-p1/), [part 2](https://markbattistella.com/writings/2025/rethinking-feedback-p2/), [part 3](https://markbattistella.com/writings/2025/rethinking-feedback-p3/), [part 4](https://markbattistella.com/writings/2025/rethinking-feedback-p4/).
 
 ## License
 
